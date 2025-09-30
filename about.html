@@ -1,94 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="About AnimeLIB — discover our mission, team, and what we offer to anime fans." />
-  <title>About - AnimeLIB</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AnimeLIB - About</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <div class="container">
-      <h1>AnimeLIB</h1>
-      <nav>
-        <ul>
-          <li><a href="index.html">H</a></li>
-          <li><a href="about.html" class="active">About</a></li>
-          <li><a href="anime_list.html">Anime List</a></li>
-          <li><a href="reviews.html">Reviews</a></li>
-          <li><a href="episodes.html">Episodes</a></li>
-          <li><a href="news.html">News</a></li>
-          <li><a href="faq.html">FAQ</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
+  <!-- Навигация -->
+  <header class="navbar">
+    <div class="logo">AnimeLIB</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="anime_list.html">Anime List</a></li>
+        <li><a href="episodes.html">Episodes</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <!-- Hero (re-uses the banner styling) -->
-  <section id="top-banner" class="container">
-    <h2>About AnimeLIB</h2>
-    <p>We are a small team building a friendly, easy-to-use site for anime fans — from newcomers to long-time otaku.</p>
-  </section>
+  <!-- Grid Layout -->
+  <div class="grid-layout">
+    <header class="grid-header">
+      <h1>About AnimeLIB</h1>
+    </header>
 
-  <main class="container">
-    <!-- Mission -->
-    <section>
-      <h3>Our Mission</h3>
-      <p>
-        AnimeLIB exists to make anime discovery simple and enjoyable. We collect short descriptions, episode guides,
-        reviews, and news so you can quickly find what to watch next. We want to help people find shows that match
-        their mood — whether it's action, slice-of-life, fantasy, or romance.
-      </p>
-      <p>
-        We value clarity and helpful content: each page focuses on a single goal (learn about a show, read a review,
-        or check episode guides) so you always know where to look.
-      </p>
-    </section>
-
-    <!-- What we offer -->
-    <section>
-      <h3>What We Offer</h3>
+    <aside class="grid-sidebar">
+      <h3>Quick Links</h3>
       <ul>
-        <li><strong>Curated anime list:</strong> helpful summaries and tags so you can choose quickly.</li>
-        <li><strong>Episode guides:</strong> episode numbers, short recaps, and airing details.</li>
-        <li><strong>Reviews & ratings:</strong> short, honest reviews focused on story, characters, and animation.</li>
-        <li><strong>Latest news:</strong> important announcements, release dates, and event coverage.</li>
+        <li><a href="news.html">Latest News</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
       </ul>
-    </section>
+      <p>Fun fact: AnimeLIB started as a student project 🚀</p>
+    </aside>
 
-  
-      
+    <main class="grid-main">
+      <h2>Who We Are</h2>
+      <p>AnimeLIB is a platform created by anime fans, for anime fans. Here you can explore reviews, episodes, and community opinions.</p>
 
-    <!-- How to use -->
-    <section>
-      <h3>How to Use This Site</h3>
-      <p>
-        Start from the <a href="anime_list.html">Anime List</a> to browse by genre or tag. If you want opinions, go to
-        <a href="reviews.html">Reviews</a>. For episode details, visit <a href="episodes.html">Episodes</a>.
-        If you have questions, check the <a href="faq.html">FAQ</a> or send us a message on the <a href="contact.html">Contact</a> page.
-      </p>
-    </section>
+      <h2>Our Mission</h2>
+      <p>To connect the anime community and make discovering, discussing, and enjoying anime simple and fun.</p>
+    </main>
 
-    <!-- Call to action -->
-    <section>
-      <h3>Join Our Newsletter</h3>
-      <p>Get short updates when a new review or news article is posted.</p>
-      <form action="contact.html" method="get">
-        <input type="text" name="name" placeholder="Your name" required>
-        <input type="email" name="email" placeholder="Your email" required>
-        <button type="submit">Subscribe</button>
-      </form>
-    </section>
-  </main>
-
-  <!-- Footer with team names (required) -->
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 AnimeLIB | Team: Nurassyl, Tomiris, Aitolkyn, Dinara</p>
-    </div>
-  </footer>
+    <footer class="grid-footer">
+      <p>&copy; 2025 Anime World. All rights reserved.</p>
+    </footer>
+  </div>
 </body>
 </html>
