@@ -13,6 +13,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  transition: background-color 0.6s ease;
 }
 
 /* Container for centering content */
@@ -149,16 +150,17 @@ textarea {
 
 button {
   background-color: #e91e63;
-  color: white;
-  padding: 10px 20px;
-  border: none;
   border-radius: 25px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  color: white !important;
+  border: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
 }
 
 button:hover {
-  background-color: #ff6699;
+  background-color: #ff6699 !important;
+  transform: scale(1.05);
 }
 
 /* Footer */
@@ -697,7 +699,8 @@ h5 {
 }
 
 /* 2. Tablet (min-width: 576px) */
-@media (min-width: 576px) {
+@media (max-width: 577px) {
+ 
     h1 {
         font-size: 2.5rem; /* Medium font on tablet (sm breakpoint) */
     }
@@ -708,6 +711,7 @@ h5 {
 
 /* 3. Desktop (min-width: 992px) */
 @media (min-width: 992px) {
+  
     h1 {
         font-size: 3rem; /* Larger font on desktop (lg breakpoint) */
     }
@@ -748,4 +752,202 @@ button:focus {
   padding: 5px 10px;
   border-radius: 5px;
   display: inline-block;
+}
+
+#dateTime {
+  color: #ff007f;
+  font-weight: 600;
+}
+
+#themeBtn {
+  background-color: #ff007f;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#themeBtn:hover {
+  background-color: #ff4da6;
+  transform: scale(1.05);
+}
+
+body.day-theme {
+  background-color: #f5f5f5;
+}
+
+body.day-theme header,
+body.day-theme footer {
+  background-color: #e0e0e0;
+}
+
+body.day-theme .episode-card {
+  background-color: #e0e0e0;
+  color: #222;
+}
+
+body.day-theme #contactForm,
+body.day-theme .popup-content {
+  background-color: #ffffff;
+  border: 2px solid #ddd;
+  color: #111;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+body.day-theme #contactForm input,
+body.day-theme #subscribeForm input {
+  background-color: #f7f7f7;
+  color: #111;
+  border-color: #ccc;
+}
+
+body.day-theme #contactForm button,
+body.day-theme #subscribeForm button {
+  background-color: #ff007f;
+  color: white;
+}
+
+body.day-theme #contactForm button:hover,
+body.day-theme #subscribeForm button:hover {
+  background-color: #ff4081;
+}
+
+#popupForm {
+  display: none; /* hidden by default */
+  position: fixed;
+  z-index: 1050;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* dark overlay */
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.4s ease;
+}
+
+.popup-content {
+  background: #1f1f1f;
+  padding: 25px 30px;
+  border-radius: 15px;
+  border: 2px solid #e91e63;
+  width: 90%;
+  max-width: 450px;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+  color: #fff;
+  animation: popUp 0.3s ease;
+}
+
+/* Animation effects */
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes popUp {
+  from {transform: scale(0.8);}
+  to {transform: scale(1);}
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: #ff007f;
+}
+
+.popup-content h4 {
+  color: #ff007f;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* Popup form inputs and button */
+#subscribeForm input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #444;
+  border-radius: 8px;
+  background-color: #2a2a2a;
+  color: #eee;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+#subscribeForm input:focus {
+  border-color: #ff007f;
+  outline: none;
+}
+
+#subscribeForm button {
+  background-color: #ff007f;
+  color: white;
+  border: none;
+  padding: 10px 0;
+  width: 100%;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#subscribeForm button:hover {
+  background-color: #ff4081;
+}
+
+/* ===== CONTACT FORM ===== */
+#contactForm {
+  background-color: #1f1f1f;
+  padding: 25px;
+  border-radius: 12px;
+  border: 2px solid #333;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+#contactForm input {
+  background-color: #2a2a2a;
+  color: #eee;
+  border: 1px solid #444;
+  padding: 10px;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+}
+
+#contactForm input:focus {
+  border-color: #ff007f;
+  outline: none;
+}
+
+#contactForm button {
+  background-color: #ff007f;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 25px;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+}
+
+#contactForm button:hover {
+  background-color: #ff4081;
+  color: #fff;
+}
+
+#errorMsg {
+  font-weight: 500;
+  font-size: 0.95rem;
 }

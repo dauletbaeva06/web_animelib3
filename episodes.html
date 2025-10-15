@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AnimeLIB - Episodes</title>
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AnimeLIB - Episodes</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -19,7 +19,7 @@
         <li><a href="about.html">About</a></li>
         <li><a href="news.html">News</a></li>
         <li><a href="anime_list.html">Anime List</a></li>
-        <li><a href="episodes.html"class="active">Episodes</a></li>
+        <li><a href="episodes.html" class="active">Episodes</a></li>
         <li><a href="reviews.html">Reviews</a></li>
         <li><a href="faq.html">FAQ</a></li>
         <li><a href="contact.html">Contact</a></li>
@@ -27,11 +27,19 @@
     </nav>
   </header>
 
+  <!-- ===== THEME TOGGLE & DATE ===== -->
+  <div class="d-flex justify-content-between align-items-center p-3">
+    <button id="themeBtn">DAY THEME / NIGHT THEME</button>
+    <p id="dateTime"></p>
+  </div>
+
+  <!-- ===== MAIN CONTENT ===== -->
   <main class="container my-4">
     <section class="episodes">
       <h2>Latest Episodes</h2>
+
       <div class="episode-card">
-        <img src="https://cdn.myanimelist.net/images/anime/10/47347.jpg" alt="Episode 1 Thumbnail">
+        <img src="https://cdn.myanimelist.net/images/anime/10/47347.jpg" alt="Attack on Titan Episode 1">
         <div class="episode-info">
           <h3>Attack on Titan - Episode 1</h3>
           <p>When the Titans first appear, humanity is pushed to the brink of extinction. Eren and his friends witness the destruction of their hometown.</p>
@@ -40,25 +48,16 @@
       </div>
 
       <div class="episode-card">
-        <img src="https://www.toei-animation.com/wp-content/uploads/2019/02/one_piece_product.jpg" alt="Episode 1 Thumbnail">
+        <img src="https://www.toei-animation.com/wp-content/uploads/2019/02/one_piece_product.jpg" alt="One Piece Episode 1">
         <div class="episode-info">
           <h3>One Piece – Episode 1</h3>
-          <p>I’m Luffy! The Man Who Will Become the Pirate King!</p>
+          <p>“I’m Luffy! The Man Who Will Become the Pirate King!”</p>
           <span>Release Date: October 20, 1999</span>
         </div>
       </div>
 
       <div class="episode-card">
-        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxITEhUQEhMVFRUXFhcVFRcYFxUXFRUVFRUWFhcXFhYYHSghGBolGxUXIT0hJiorLi4uFx8zODMtNygtLisBCgoKDg0OGxAQGy0lICUtLS0tLS8tLS0tLS8tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIAKMBNQMBEQACEQEDEQH/xAAbAAABBQEBAAAAAAAAAAAAAAAAAgMEBQYBB//EAEEQAAIBAgQEBAQDBQYEBwAAAAECEQADBBIhMQUiQVEGE2FxMoGRoRRCsSNSYoLRBzNyosHwJJLC4RUWNFOy0vH/xAAbAQACAwEBAQAAAAAAAAAAAAAAAwECBAUGB//EADURAAIBAgQCCAYCAgIDAAAAAAABAgMRBBIhMQVBEyJRYXGh0fAygZGxweEUI0LxFZIkM4L/2gAMAwEAAhEDEQA/ALyvGHtgoAKACgBYqjIYtaoyjHUFLkUY6opUmUY8opTYtnWFLuCFWzFUlqVlqSUM0iWgl6DgFLbK3FAVRsqKAqCBFwHcVKsWVuY3nPerWRfKhS3T1qHEq4ofBB2qjFvQ7FAHIoAIoAKAOUEhQAkipJOEVZMkQRV0yRLCrplkNsKamXTGmFMTLpjTCmpl0xlxTosYhpqai6GTTUMQg1ZFjhqQCpAKACgAoAKACgBa1RkMcWqMox5BSZC2PKKS2LY8opUmUZw71QFsKAqjZDH7I60mbFTHc4pbTKZWHmioyhlZ0XRUZSHBjoqpQRcQRNSmy0W9iPTBo5ZOtVlsVlsSKWKCgAoAKAIxczvTbIaoqw4jzVWrFHGwuqkHCKkkQRV0yRq4SKZGxeNmNF6akMURGemJE2EsKZFlkMOKdEYhi5TojUMmnIYhFWRY4akAqQCgAoAKACgAoAWKoyGOJS5FGPoKTIUx9BSJMWx0Uli2JAqGywsUtsqLUUtsq3YUKqQOJbkVVuxRysxQsGozEZx5ViqN3Ft3G8R0q0C8DqoCKhtpkOTTFIANBUO5Du9xdQVCgkKAEuYE1KV2CVyJTR50DWgh7EgsO9LsKSYk3BU5WWysR5oq2Vk5WdNSgGbtsb02MmMjJkdhT0NRwVcGIcU2JdEe4KfEbEYYU5DEINXRYSakkKkAoAKACgAoAKAFCqshjiGlyKMk26zyFSJCCs8hTFttSii3BRVWwZKt24rPKVxMpXHRS2UZHNXGoet3ABVWm2LlFtiheFVysjIzr3AKFG5Ci2NNcJ0qyikXUUtRLKRvUp3JTTOh420otcLX3DzD3oyoMqO+Ye9GVBlQ9beRS5KwuSsJvnSpgTBajFMGgKCAK0Ep3Oos1DdiG7HTZNGcjOLCxUXuVvcZv02AyAhkFMTZZNiDHSmosMvTojER7laIjYjD05DUNmmIsJNSSFSAUAFABQAUAFAChVGQxxapIqyTZFZpiZklKzyEseyzSW7C72HLaRSpSuVlK512IqiSZCSYnMe9FkTZBUEnQtFytxSITUN2Ickh4ICKpdpi7tMG5RoKFruSus9RktJ1q9rF7WQl8Vb1zSsGCSCF0/i2+tNWGrZVKKun2e7iVUs7EXMzXGCH4FXT8rFixIPYwF19etbsPhY1KF5btuz8P39iKlRxasOnFJvJGsZSJfNElco1JjXTprtWT+NVz5La+XjfsGKpHLmbHLF8+YEygAqza6tylBJjQfEdNfltVsRhOipZ5PW9u7Z/USqjnIdvb1kjsaIbBbtzvQ5WCUrD9LFDF860yI2Am28VLVyZK4rzvSoykZDj3O1SogojRJNMVkM0Q2y9KbFlkxpjTUXSGmNOiMSGWNPiMQ09ORdDRq6LoSasSFSAUAFABQAUAFAChVWQOoaVIoyTbNZpiZIkIwrPNMU0x+2aRIUx4UplGLiltlRLoBQm2Sm2NmrFyTbOgpUtxMlqNte7VZRLKHaJSelWduZZ25joaPiqFG70F2vsM4q+yFWXIEPKSwJhiRl2IgHUT3gda6+DoRmnmvcRUcthpBc8xmIUKVGgYnmEjNBURIyjf8oro9TIkt0KbvuLs4dEkooXNqYAEnuY6+tQ5N7sgULYnNAzREwJgagTvE9Ki7tYgjvYbzDd8woAuWBl1GjEksDGvapkoTgotX1uWvtYj8Lxtkeaz3FU54Ae5zZQiwSXMnUtWbHYWpeKpx0tyXO/cOi8mhdOPlXAejGJkRwetWVuQ5W5HIq1iwpbRNFirkkdFk1DZGdChG1Vs9yNdxFwHpVo95aNuYwO9OXYMfYIuMO1Nii8UR2p8RqGiKei4y9PiMQ0aYi4k1JIVIBQAUAFABQAUAKFVZDHUpUijJCrWeTFNjqCkSFtkiwKRMVNkmYpFrirC0YGqODKtNCnXSoSaZCepGq40k2yANTSmrsVJXYi4w7VaKZMUzludYgUPvJlbmPKsjWpg7MW3bYrr1nnNq6zOGllEwMoI5WVYEAxBO/uDPo8PL+tSgrcvdzNNu+5LAjSrFAqACgCHxW+AhB3OgA6959KfQi3K5emm2U/DwhuoLhhZn0LCMqt2BP6R1p2Lc1Rlk3/ABzHTvY1rV4ye5KOVVEjYUnSt1KlcvdIj4/ilnDFBfbItwlVc/AGAnKzflkSZOnKda6lDhlSum6au1y527u376mWtXjC2Ym3LRIkGQdQRsQfWsssJbkNhNDIw9JnQaG9IIuIV2pLpdpaLUtxrzO9VyNF8vYMXCOlNjcbG4yTT4jEMsafEYkMOafEYho01FxJqSQqQCgAoAKACgAoAUtVZDHkFKkUY+grPIU2PWxSJMXJkuwNKzyV2Im9R64oAzMQB3OgrRQw8puyQnpLCVvDojn1gL9mIP2rs0+CVZLrWXj+ri3UbFHEfvKw9dCPoDP2oqcCqRV42fvvKqduR0oCJBkdxtXErYWUHZodGaYnJWbo2XzHLhCqWbQASf6fWnUsNOpJQitWUlOyFWEJQFhBygn3jX71nrJRm1Ha5Cm9AVY6xVE9S7dymxd/8O6g3wVYFnLqucRESwjMTqAI/KddK9Lg309N9S1tFa9vfaZJQSeo43Hba3VsMQLpVrjrOttAJ5onWSq+pOlPWGnKOdLS9l3sTdcxm34ntFZa3iV30/DYgwJMSckba1qfCcTfRL/tH1FOvD2mRMR4oMEJYvE9Ctpz84IEfOnQ4RUvd/f0uX6akub+hnMT4tth1W4lxRoCzZRlXUAwCdJGvzrb/wAXUVNzTXgr+gLiFJTULNXNV4cw4uMGuWyylCytBNolWCmCOVpmQDPw6da8/wATqShTtCVnfXt1X1NLkpOxoXuma8s4GlQVhdu4OtRGGpWUTI+PcXhrlt7QxAs4q1z25L2ySRJTNABVgImYkA9K9jwShWp2nlvB6PZ+2jBiZRay3s0eYXuNYi5b8q5euvbJDZbjFoI2IzSRudu9etjSpxeaMUn3K32Oa3J6NslcJ8TYzDLksX2Rd8sI6j2DghflFUq4ajWd6kE32638mr/MmMpR+F2L3Cf2l41SPMWzdHWVKsfYoQB9DWKpwjDS2uvn6+o5YqojZ+HfHWFxRFpwbN06BWIKMeyvpr6ED0muLjOB1KcXOHWXmvFelzVSxcZOz0ZfX7MVwKlBxOnCdyG8Vnsx6uIMVeNy6uhi4K0RGRIz1oiOQ0aai4k1JIVIBQAUAFABQAUAKFVZDHEpUijJFsVnkKkSbaetZ5MVKRKVQozGf9SSYAHuSBT8LQlWmoRWrMtSpZFH4iLi21xi4OcLbRRcyokasxsgszsdI0WGiGjX23D8HDDxtpm5v3yOXiHUvfl3FZwTgvnBnNu2qFj8dgS0Ezyuit21P/5vlPLoJp4dz1ehziZxOAm+p8yzIzIJ8uCQIyknydJgrpO8zUwUary7Mmo6mHWbde/oanhvEFu21xFnmVxMbZo0Kns4iJ9O1c7G4GNZZZK0lz98jZCanFThzJi4vMJVR8yZB7FY39JFcqPBdetJfIupSZEYB3i4WyjUnIxB/hRVBgd2OsGBvI1ywfQ03HDx6z0vdX9+BDLT8RbOmaJ2zArPtmAmvMV+FVoauL9+BCnYcez6Vlp4N3GKZGx+ETy2ZpGgBKgZyMwhAT0Y6RI+I6jeuxg8NJSSFzlc8b8PcPu2MQL2Itu6kkPcVWuKzEqwYmCYkKZIkQDpFe4UqPRpR3RyHSrqo3JOz7NT0DxL4qsvbS1axNloy5yLqJ7gZmHQZdx8R7VRF3cqrfHMPass5v22bU/3iMf4c2QwAPTTfc6m225XfYxvEeG3sWTftqTbIANxpCElyJBIkjmGwNXVeEINc2VeFqVJqSWi5no3gPxKhH/huIdfxNqFQhWUX7ZQXFcaaPlMkHXr3jyvE+HZr1YLR79z9P8ARvhPLLJLc1N+xqa81VwrRvhU0Glt0iNJpjHI8x/tVvr53l3EIYW1exdAXqSr2n15rZKkg/ErTAINe44LTth88Xzaa5dz7n5Nd6ORipXqZX2adv8AowoNdwyBQBwsNqAOmpvYg2fgHxNeS/bw1y6zWXOQKxzZGPwZSdQJgRMc1c3ivD6VWhKrFdZa+t/vffQdhcRKFRRlt7semYlTtXgJxUWejptEcrFRFjU7ke5WiI2JHetERyGTTEXEmrEhUgFABQAUAFABQAoVVgOJS5FGSErPISyXYWs8tWImyU+6jtLH3+Efq30r0XA6Osqj5afX35mGo9SPfx6o6220kTPbWBPpofaK9EUSuN8Q4ktvljM3aYA9zBj6dpiglRb2JKslxNgyOuoOoIOhBH1EUFWr6MyPg9ThsXicBJyf31qf3dAfsyj+Q1qrPpIRqc9mYcNHoasqPL4l4M2Kkbj2+mlZTeN4i8FUkglepHT37e9BKRXW8VhwSma6e5Qlip/dfPKkEfP66Zq03B3T+RbJWb6qv9Di8Zuo2S0yFBBBdGk+gUOMqjbfXpHXFVVOTzZdeYyGDcvi6vduZPhCYzHcTCYm8Ysk3NNLawJt5Le2rFfWJ1mu9Shh44ZOkvi+vfqefnGvTxTjN/D9H2GgshLa/h76k+XdIdQdHXVv2unw8w2kGFOoMVk2kdN2nCyJPCeCW7MkSzkmWPUGIGUaTpv19NqmrUU3dKxGHoypJqTuOcT4RavLDLqNUIMANIMkRB2qKc8krtXLYik6sMqdiNjVt2rLhFgsqoxHMXgBGcyQGfLJO2o9qipUu8zCnT6OFtym8a8GGDv4XFWrj2mIFu69swxIBM5iOwjKw1CrAMEDbFxdJwmro5dSMpVVOLtck8F8XX1M3GOItTqSoFxBEwCIBMH4TvGh1rk1+H05xvDRmyNRxdma29xK3dUNZuAWsue5dXcA6BF00cnpEjbc1xf4WR3au+S/L7h2e/MwXjThQxdxEt+YtxCUl380gMM2V0nMpmD1iflXZ4dOdGLu1Z//ACv39DNXpqdu1HnPEOGmxce2WBa2YeA4EjUrDqrfauzCKnHPHYyTnlkovmJdiRy6mY+mp+wNDehKWpJs8CxN/ns2ywBiQRodG79iv1oy35gnbkWPD/B2NxDBEVAVGYzcTQLuTB2oaXN+/IFfkvfmU9+61t42dWPuHQj7gg1DfaCjc94wuNF61bvrtcRHH8ygx96+d4yn0dWUHybR6ShLNBPtOvWSJoiR7laIjYkd60RHIZNMRdCTViQqQCgAoAKACgAoA6KqwHFpcijJCGs8kKaJ1mkW1M0x8HmY+y/YH/qNew4RG2Hv2t+hgl8TI1jhdvEPda4JylUU6SIWTuNNSa6LYmUrMfteF7AMtmb/ABGfu0mouV6RiUw3kubQ+EjOntMMPkSP+arIZCVylu4Qfi/xQAzeWltZ/iW44j+KUA9iR1q2d2y8r3K1ILNGfO1vMn4jHrausrEAMA+pAI0ykienLVbmiMU0VuLvm4c4zJpplZlY9ixEGfTpNYauJbdomylh+r1voU95TZXKivHRlK7+qkAfX60lPM7su10atFae+RBuY9nKGMtxJmJAKtGoB1A0mNdutXyJX7GKdRyt2otvC/EgOIqIJa7YMARo9l8xI0nW2zjcfWCN2Ef9bj2P7r9HL4jrVUu1fZ/sufEWCyXrt0A5L9lnB3TNlXQGBEcx9c5PSrzjZ3KUJXjlJfDbvmgk3EtiFKXCygMCqmVk7hiREfl9aqoJ8xk6rjpluO4i3kTlvpdb0htZ/NlICjXt0qXBLmRGtOTsolHiLIxF23bUkoXAGpm5IILTB0VcxDR0nUAExGN3qXq6RbK/+2/FgLh7Q+LzGZQJ1W2mSNDHxXAP0jmnXTbTucuaurGe4LwzFZRckLOhEkHL1mN+oj16a1jrYqlGbyfr/R0qGBrzpp1LX87epoMLxHyWVVb82cIgUpn1lyG0za79O8xWGbc7v34Gz+NT0UvL8vn5GkteNAtsm6hzgMcyoxSApILKDIMiImD0PQLp4WEpauxmr0Z0/hTa97+uxhOG8Gt4rCXMRiAXxV975a4T+0t3FfKiiDAEFJWNmjosdhPJ1Y6JGKNOM43e5geFXCHXlmA7kajlW0zMe+ihj8qdcTY9B8IX7vkFEsXSbiZkebahgbaJnTzGXNBtsYFGdIFTb2LrheIxVq9cw62VFzys90s6AWbTFlzsqTJ1JgNML6UKaYSg07HmWDwj4hcXeIi5bsDFD0JuJcJjsbbMY9qzV68YzgntKWX7/kvCDs+5XPZuCWfLsJbOwzZR2Quxt/5SteGxtTpKrku76218zvUI2hYk3XrNBGiKGHNPihqQw9PiNQ2aYi6EGrEhUgFABQAUAFABQB0VVgOJVJFGPpSJC2S7b60lLUzyjodx97JbuOfy5bnyUL/9DXruEv8A8e3Y2c+S6zIWAw9641x7N0o6Yh111tlC2YEqNGUjToZQwQa6enMw1s+ZOHzNddUkQrZT3gGO8A6T7z7GlEmYucLew74l7j3BlMszEkzJ1QHKIOVQAPnrTbrkUpKaqNt6FZi+IqmOw+Hk889TBC2bgE9+Y6VHM3T/AMSk8ekefauHaCp9rdwz+tRLVNI00X1GWWBv51B6jQ+9ciSszdCWZC8RcgR1Onf7deg9yKhK5MnYj2uGpHMoJ/T57n9OwFWc3yKKlHmZ/jFgJdTE4dznw+a4AYyuF1e2H6HKGEkHc61tw1XLpJbnNxuHVTWL1jf/AEby/wAUTFWBdzg2cv72QDMOeWAJG4EaRqNIrTUbvYxYeKyuRRW8R5bsLTZFLIAc58sDLnLTcJklQRqv7pkbVV7amjW+hYJauXVJNwONCoiVYH83LlDD1htjGoqNESrsteEstjmcHzWEZyMyW5yg5cuyTDc0GA2sxTISiZK0ajd2ea+JeMLieKEZhlsKUUZg3Oom4ektmYjeCbcg61Ne6pacyuESdbXkmaLD4FWQHO7KQCNQBB9ANK5Dk09j0Maakr3YnD8Otq5BXNMHmJbbQaHTv8w1S5toI0op6+/fqWFq0qiFUKOwAA+1Lbb3GpJbFFjOI28LfmOS4f2gAELcWP2uX8xIYA9eQex62AhKrBx5rbwOHxKcKFSM+UtH49vqV6YNLPE8Di0INq7dyEj4Q9zMgHsVuCPRDT9bNPcySSzKS2Z7SLSiOUcogeg7DtSrjkrbEbiah8PdAJ57b21IENzqQSvsCTPt3qk59HBy93KSWayMNwjw+LWKxVsrytgsLaPY8j2m99LIrz2NrylRptbqcn5p/k00aSztdyNDlhQvYAfQRXCkm5NnUpqysNE1ZIbYac06IxaDLU5DENmroshJqxIVIBQAUAFABQAUAdFQwFoao0VaHQ9KcSjRJw761VQuxNRaDD3S967ZciHthUWBCwDq2m7EtvpCjTefW8PpRhh01u7+hyHUfTOPJFD4N4zctX73ng5iql1iGCrOqr/CGWANCGPcVrkXqUYuCyd/7+ZvrGNzANYHnISSTnVcuc5oIIzDeY9arYx2sQ/FnEraWLiyGYLmI3yBebMw9Mug6n0kgSBHjfiTirHG+ch5rJQKf4rZzEH0zlh7VdD6jvLTkXHiLiqXP2k/s7sXrZkSjhQly2foJHQwdZoNdOaUcxX8O4tELm5fhzAwR+6GHbpP/c1mqUL6olTSV4vT7eJd2+IsGQHmA29QQx3+Q+1ZcisxqqtNXLIcQVhAlWMKPdiBIPpM1WFNuSQyVZZXbcsbXA7F1GzoNeXlJUxEbrE79a3y3Of3HeCcFt4W1dwyl2tkm4C8GM4ylQQBIGUHvzVaUnJ3YqnTUFlWxnuLX1hbI5ykG7B1nJGUmZllJPf4arN6pdo1aJvsJo8SomSXRQdGZ5UuwHdgAoiIWep2gzfLdtC86STezLTD+KsIwnz7QjfnT/U1Dpy7CVUg9miQOLYdpAZST2KyfoZqqRYq7d9QDLAcz9R++1Yay/sdjo0JJU1d+7kTFcRQOkc28x6DTf8AxGojB2ZMqqUlYjtxC5Mgx6QIqciKdLK5kfEWOVripM5Zk9MxiRPpH3rucNh0fWlpm2POcXqdK1CGuXcOFcSyA2rkm2SGkatbdTmW4gO5BAMf7O7EYfP1o7/c52FxXR9WXw/Y9VXieFxA/EG15jmIMqU00jMdV9o0JPWa5uSUdDqdNFq6Mn448Q3LeKsmzcINuymZVMIjMSxQD8py5fsDO1baFCE6bU1dM5uJrSjUTi9Ua/gHijDYgKGZVvlQHGkabc23U6d5HafP43hM4NuKvE6uFx8J2TdmW+Iwtefq4ax16dUrrqisjptGuLbI7VdIchpqYi6GzV0WEmpJCpAKACgAoAKACgAoA7NVAWrDrVWirTJuGYb9h8/l602jScpJGSs3FXZf2sGotlXiTzOdNCBuD0ywIP8ACK9NTgqcVFHClJyeYyjeHLl3E/iGJTJmVGME3bbiQrLJKoGJMGCJj2rWxUYxSjqxlHMp5uQvBeFbcnMrWiEFvNbuPbYKgOQq6NDLH5HEDtGlZp4mV+q/fY/VF5wTGV4PjLoZWSxk51tsrMGuIRBfyyCApkcuuvpBPT6XNFXVjFGGR3izMf8AkS4qupKNiCwCZiYuFyxkSNCAJgrJ1I03vHK1puROcs2uxnOP8Du4QG1cuK3OJCAlC4BlkZgNoyyAKhxsrjYVczyoqcHdyXEuROR1aJicrBozQY23g1UY43R6Zwjh1jiFhrmEm3dQnOrgqAzEEKSsqwME5gJ0gwDFJqRzPVBSnKnoyPxHgmItQrIcxXODbJeII1GXm0MdBWaS6OzbRsVWM1b35CbN/EoyeZKq/wAMgE6GDOgI0ynXXXWNqFiLp5dbFo07ys9C3uNdIg3P8pke0kj7VT+S+w0fxV2mct8AdPOBu+Zn/aFm5Wkgjp/h6R7U3+RnnF2tyM7wjpwmr3vd+X6Gsd4Za8tu2XCASerHYaa+9EcT0c5O12Vlgumpwjey38ji8Aw+HgKpu3dILQSCdsq7A+vTvUSxNSpu7ItHB0aOyu+1j3EcMbYXNzEwY3EnQqB15Z+5pcHfYbUi42uGGwzhFi28ZQRFtwCG1BXl+E6xVnFt6Co1IJWuh6zw53LOctpLfxPeLW0zEHlzEfEZ69vaWU6MpaWF1MRCGtym43ibqN5AAlgCrq2YOrbFDA9p9/euhhMBGXWm725epzMdxKcOpBWvzv8AYzVy3Mr2MV1nFVI2OJGTpyTH+EYd7rG0Lbu0ZgFDMQq/EYUeo/SskqtSnozXGjTq6pG98NeAfMsl3xLW7j/Atog5VAnNdEyZBGgIiRqZgVq4tNq0U/EZSwMkneTXgUfFfAONt3TaQC4sZ1YFUa6Ilgqk/GDMqCT1Eg1aOJzJLZcxcsLkbe75Enw54Hv3Li+bNlNxDAPc6kWmErIHc/8AZtTEpRtTF0sM3K9TY33BQiOcMgxCsiybN9rbZknS7aYMcw6cpI1AIBrkYvD9KsztftX5Orh6qpu0b27H+B3FkDoQdiDoQRuCK8ziKLhJpnocPLPG62IbNWSxqSGyaskXQirFjhqQCgAoAKACgAoAKACgDk0EgLnpUWDKT+GYlBcTOyoszLEAEqJUSeswflXR4fFOp4I5vEE1T07TTZLT6xbefRWmu2cSxx7FpdTCj/EQPpMVTJF8iybIty/hDoXtaGTqpmOk+8fShKMQtJlVxPi5vZ7Vuy8QR5jZAuUjmYBgTMTtrNCrUlq5fJFp0Ku2X58jM+LLlmxZD2b7JeyEobly67ISZuW7IJPlzlCyIHrAFbJ2jsZKac3rsjzm/jXvZBduMcoKgsWYwWLHU+/yAA6Utu5qpQinrp8iXYYDlUHT0O/+pqLHTo1ab6sD2rwfwv8ACYQC5yu03bvoSBC/JQB7g96W2c+tU6Sd18iAceLq+epDecYSDIFtSQPvP+xXIx0nKeXkjoYGkviI/FbHKsiTmgd8vU/KFPyFLoK0WPbUpqxWY9nUB0kx8Q3kdwOvy1p8bPRjKjktURbXFFY8w3WJGo0J/rVnBrYWqqb1GrnFBlTLvJG3owAA3J2ptSH9kvERRq/0wS7EvIlcPwRB8y58Z2G+WfXqx6n5DqSmUuSNNOnbrS3OYzBlyz7kIRbHrB1+v++5GVtAnDM2/obbhONU4c3bQBA2WYhE5QPSFXbvNdGnG0ThtWM34d4cvET/AOIY3nDFvw9gmbdq0rFZZfzMSDvoYntHSb6LqR+b7TmX6V55fJFxx/wnZxCobYWzctmbbKgKgdVZAQCPoRA9jSnUcHdBUgpqzPOeJ/2b4ywpZMt8DfJIfQb5G322BJrXSxEFo9DLVw8nqvfMy+GxL2bmZGKXFkeo6EEH9DWicI1FZ6menUnSleOjPQfB/jRLk2WhLpAUnTVUGrW27xmOU7eoFcapSyvTY79KsqiV9GaziWNtm3bhDIuW2tBQSbQS4qm5cYfAoDsCD+VmB3MVhdMmqk1ryLoXbQbIHTMxzBcyySeoWevpTTKVHjHKLKXwQLtu9b8lhvna4ttk9VZSwI7e1Sua7g5p94jjlxWuSjA8omO8kfoB9K89xNWcWej4c9JIrZrk2OmJJosScqSTlABQAUAFVuAUXAKLgFFwCi4BFFybnMtTcLnQKlSaIZ3Ku5RT/KP6UxV5rZiXRg90dAXoq/8AKKHiJvdshUILkSLdwnSiMmyXFIl28CCuUgwdxmKzGvMwOi6SekAzXQw0JuSy7mDF1Y5XmMB4u4pZvOFtKuS3mHmRHmTEkLsEGXSdTuYmB2krK24vDUXFNy0vy7P2PYTwCxVXvPbshiAFILPJ1ChQRLkfkWT3iouInXpJ9WNzU+H/AAIMPfW6bguoslVVcnODoWEkGNdJ3A7UZhdSspxyqKRz+0XijMU4fbYq13W6w1KWQRm9pB+e1EI3Znk8scxUeCR/w7J/7N+7bX2kN+rGuTxHq1Dr4CbdOxY4vEze8sna2pUf4mbMf8q/SlUv/XfvNEbKbRyrDiFfwaMbjZQDESNCYWZPf4vtTYNtpCKkUlKVuX4FWMIilMo2zNO52j/rq1aTc5eP5KYaCVOHgvt+yZSDSJZgNSY96kL2KTjXGWwtgXba8ty/ctbkZrbWpYqe/mZ9fcdo6ODvJ5XyV/M4mOkou6W7/BM8D8TcYS2UaCAUbQHVGbSDtvPzrpVL5nc5ELZVbY12G8QdLiz6r/Q/1qhYm4XGvcUsoXsq5tfdj09gKAKvjds27Fy5iPJ8sAl1KApHqIzMT2+p6UAUPgrhK4gJj76WraqX/C27aW7PKJRmZkALLuMu0TMgxRWko9RfMvh4Oazv5fs2925EjVQADAA5FIADADSAQZHaekVnNS0PO/EWCw7Yxbf9y7CWZCPKuODplJByGDsDpIGhMknVlCGa1/uVVKM5qN7N/Qscbgblx7TPdISySyW1AIzkEBizbwCdI31naubX4q7Wpx+bOhh+FpO839B1UjafmSSfcmuNUqzm7yd2dqEIwjlihVLuXOUXAKLgFFwCi4BRcAqACgAoAKACgAoAKACgAoA6KkDuOxBtYe7eWMyW2ZZ2zAaT84rbg6SqVIxfNmHGVXCnKS5IyOFDYbh0SfMxrljJP/p7YWfY3HaSfzAQa9TVavocTh1LPPNLlr8ynRiCCNCCCPcajeknaaTVmaDDeKnDi7cthriqbaOGKlEYy+QGQHOvN/Ed9ACxjlg9LRegjE+LsS0KhFpQICpmgDtqTPudTUWLRwcFu7kPiOIe2tl7jE3sTctOxO4w9t1dRpsGYhvUVopxsjkY6celyx2Wnr6Gn8CZWTEoPiXFXSw/xEZT7cpHyNcfH0253Ong6ijC3h9iz8TcK/Ym+ul22OTWPMk/3fuTseh9CZXQhbSWwyrUea8Fd9naYPF+Krts5TbcHqDkH001rdT4f0ivCSfh6GarxV0nacZLxSt9dUJHidGOruuYQZUiO3wiOp+1Q8DVj/iTHidGf+Yq34oVAua4SQZgo5kN1kDaCD8qKmFnOTaW4UcdTpwUXLbT5f6JGI8Z2wpyAs3orj/5AAVWHDq0nsMnxehFaPUa4dxN8RcXNbuBCRnuaHIn5mUddO3v6VM8OqW8l4FIYudb4YPxe37Ln+1zDImEwwtxk82FjUQbTEa9dNZ60zBRtOV+z8mTGyvBeJgsJjLlo5rbsh6xsfcbH516KdOM90ebhUlD4WW1rxZiRoSje6wf8pFJeFhyuPWLnzSJ2F8aEH9pa07qeb6HQ/UUqWFa2Y2OLT3RYcR43+LsPZt58hEG5cOW0hYR3JLQToB1rLzNfIRw2ziLiLaLZrFlRaPLEQIlQJYtsTrGo0rNWr06crSerNdCjUqx6uyNS+JukKudoVQkn4iNJ27wN/X0rm1+JQjpT1fkdSlgJy+PReZW8U4Ul62LRLLBzKQdm1kkHeZM+9YqfEq8ZXbv9DTV4dRnGy0G+GYq7bIsYjU7W7o+G52Vj+V/ff1iTGIVOouko/OPNd67vsGHlUpvo6vylyfj3/cszWA6COVABQAUAFABQAUAFABQAUAFABQAUAFABQAUAdFSDKzxjd/4dLMkebdRGIBJCA5iYGpjKK7XCY3qOXYv0cTi0rU7dr/ZUeLLaI1izaM2reHXyzIMh7ly5mkaGQw1612Z7lOGpdE33/gj8B8PYjFlhZUQsZmY5UWdgTrqewFVSuaa2IhR+IhcQwVyxdexdXK6GGG/SRB6ggg/MUDKdSNSOaOw/wAC4acTiLWHH53APog1c/JQaErla1To6bkTLqrxDi911H/D2SFWNvLs8lsD0ZgW9prSkeWbvK5I4Jjzg+KXQVJXEKWyjq7ftAddocXF9JNYsTFWbZ08M3JJLfYuMZimxF4tcLWmWQiK5K5P3hIALH96JEx3rnznppsdWjRyvV9b8dwh8JaC8wkHdmkn+ZunzpeaT2NDhBLUgYvgdgqWW2p7EECfnB+s0+GKrR0zP6mapgqElfIn9BCcAtFjNvYKNWmN9IA7RVv5lZLSbKf8fh29YLy9CZb4XhkMC2mbtEn6dvWkyrVZ/FJv5miGHoU9IxS+Q9+EVJZWyDc7ZQB77VTM3uMyKOqdjL+McHdewtw3HKWmItIQAAjxJyxMzqJJhdNK6GErdfJ2nIx+GtTdVcvt78jKo0j9a9JCSmjyk4ODOI52O4+/qKrGbStLkWlCLd48/diXatoIa6YHRZhm941ArLVrOp1Y7GujRVNZpbkxOINdZbdsCBoBoAB1gDRRU08Onq39CtTESWiX1PTvD9yy9gW7WUFNHC6yds09SY/3pXneKYWcKjb2e3vuPRcLxUJ00lut/feLvWiK4UoNHdjO4yaoMEuoIgiR2NCbWqBpPRnagAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgDtAC0tIblm6wJNq4HWPo2nXTp3AroYLE9FOz2ejMGNw/SxvzWxmfHkHELcXVWt8pGnwXLiRHQgKNPUV6G6aTRjwOkJRe6ZX8SxAXA4VA0K1zEG4BsboNsKX9fLiJ6TVnsTGcFiJ5t9LfTXzIWN8zNF1izBU3JJC5FKrr2UgR6VDH0cuW8drv7l3wJ2w+DxnEADmVPw1ggSRcuxnf+RYM+9Wgjn8Tq6KC8X+PyV3DeNJgrP4PD4Zr+MZh5xLMtu2+wsgIwLso0OoAObWKt1m819DmRUYrLbU0Zwme6l66At1VOVAZyzqwzEAvzTrGgMa6k83E1py0asu9Wud3BYanDrKSb7nexOZAYkAxqPQ9x2rGdGyYqoJIWKwKHUSpzLOUxPONxsT6xNXjJipU14CbWBBLZnuEZhpmIHwKekHr3qXIhU9XdsmWrSqIUAD0EVRtvcYklsDIDEiY1Hv396LktJkTFYI3dLhAT90az6sf9B96vGeR3juKqUukVp7dnqYvGeHrwd/Kts6KxEiCRoDB6/mHvXqMJjI1KSc3qeLxuBlRrOMFpyIDcPvrqbV0e6N+sVplKnLd+ZkjGpDZeQ02Cdt7bn+Vif0obpNWdgSqp3Vy04b4XxFzXJ5adWfSB/h3+sUuWIpwVojI4epN3kek+DOBHDKwVSVYSzucuo2IH7vyPTWuZi1LEWvyOnhHHD3tzLW6EbYrOugIOxgx3EjeuDiMO4to72HxCkkysv2ormzjY6cJXGaUMOUAFABQAUAFABQAUAFABQAUAFABQAUAFABQAUAFAClNSiGiNxnhNrEWznQZgCFfZlzCAZHQHKe0Cuvw6taai3ozlcQp9TPFaowmAw2JsW7lu9hTesMMzrIIDKI8xHSYIHUdBXdSa3Rx5SjJ3jLU7isQ1x2uNuzFjG2p2HoNvlVDu04KEVFcjS4TjDtYw2CwCi5dUM912gWkuXGJ5i2hKgAdR0htRTFC6V9jhYit/bNrw+SJtjwResN5tvGi3fecxeyrK7tLMA5LBZJO4k9qZmW1jJZjuF8R3rN0YLiVtFLRlub2W1gFhsqz+dIykiV0MDimtCVJxd+ZY47CZDyklZKwfiRwJyN301DdR9TyMVh8nWjt9jv4HGOr1J7/AH/ZAvYpE+J1X3IFZVFvY3ucVuxu5iUI5XUncaiCQZGvuKEmmQ5xa0YizhZ/aLcaW5jEQZ9O3T5VLlysQoc0yWoPX+lVGHagDtACMNiHsXfPtnlaBdQ/C4GgP8J9entmrVh67p6cjDjMIqyut/fvu+pr7VjD31F0IpDdYytI0IaNQQQQR6V1k01dHnpRcW4vdCl4XaGmURtBAO/qRP3qSB+yvQgcpgGB2Bn0OsfKgBF7BK5l5YdFJ5B/KND85oAZxHDRANvlKmVEkWzoRBUaDQ7gSPXYrq0+kg4jKVTo5qRS4ptSCCrDcHcf1HqK8ziacqcssj0uFqRqRzRILViZuQmoJCgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgDtAEfjN1lw1wqSDAEjsWUH7E1vwKvWimYca7UnY828X2xbxme3yMVRpXQ5iCCZHUgV6mn8B5murVPoSW2NIPSy2ZpvBeBtphLbqoDXFDOdSWMR129hXNxU5SqNN7CcBShCjGSWrWpreDOc5sz+zZHJXpKxBH7u/StGCqSbcW9DLxOlCMVNLW5A/tAsK/DmdgC1u5b8s9VDtbVgPQhjptt2EdOG5xXsK4fdZuH2rjEljYEk7nyrhCE9yI33pNdJwku5j8NJqrFrtQzizCN7e/2NcOO56mexnPKU6wJ7jQ/UVouzFZDXDcS6mAxA3+ZY0SSe5WlOSehrFOgrOdA7UAFBJyggkeHbzKbqhiBCmJMTmuJPvlRR/KKf09SnDqs59bD05zTkvdyRieL3laA/2U/qKRHH12/i8l6EvAULfD5v1H8LxO6fzdT0X19K6VKvOW7OfVw9OOy+5bYLEsxgmdOwrbF3RgkrMnVYqVfiG0PKzxzAqAesMwBHtWHiMIyoSbWq2NvDpyjXik99zOGvLHq0cqACgAoAKACgAoAKAP/Z" alt="Episode 1 Thumbnail">
-        <div class="episode-info">
-          <h3>Naruto – Episode 1</h3>
-          <p>Enter Naruto Uzumaki!</p>
-          <span>Release Date: October 3, 2002</span>
-        </div>
-      </div>
-
-      <div class="episode-card">
-        <img src="https://cdn.myanimelist.net/images/anime/5/73199.jpg" alt="Episode 1 Thumbnail">
+        <img src="https://cdn.myanimelist.net/images/anime/5/73199.jpg" alt="One Punch Man Episode 1">
         <div class="episode-info">
           <h3>One Punch Man - Episode 1</h3>
           <p>Saitama begins his story as an ordinary man, but after training to the extreme, he can now defeat enemies with a single punch.</p>
@@ -67,7 +66,7 @@
       </div>
 
       <div class="episode-card">
-        <img src="https://cdn.myanimelist.net/images/anime/3/72078.jpg" alt="Episode 1 Thumbnail">
+        <img src="https://cdn.myanimelist.net/images/anime/3/72078.jpg" alt="My Hero Academia Episode 1">
         <div class="episode-info">
           <h3>My Hero Academia - Episode 1</h3>
           <p>In a world where nearly everyone has superpowers, Izuku Midoriya dreams of becoming a hero, despite being born powerless.</p>
@@ -76,39 +75,39 @@
       </div>
 
       <div class="episode-card">
-        <img src="https://m.media-amazon.com/images/M/MV5BYTgyZDhmMTEtZDFhNi00MTc4LTg3NjUtYWJlNGE5Mzk2NzMxXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Episode 1 Thumbnail">
+        <img src="https://m.media-amazon.com/images/M/MV5BYTgyZDhmMTEtZDFhNi00MTc4LTg3NjUtYWJlNGE5Mzk2NzMxXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Death Note Episode 1">
         <div class="episode-info">
           <h3>Death Note - Episode 1</h3>
           <p>Light Yagami, a high school student, discovers a mysterious notebook that allows him to kill anyone whose name he writes in it.</p>
           <span>Release Date: October 4, 2006</span>
-        </div> 
-      </div> 
+        </div>
+      </div>
 
-        <div class="episode-card">
-        <img src="https://cdn.myanimelist.net/images/anime/12/76049.jpg" alt="Episode 1 Thumbnail">
+      <div class="episode-card">
+        <img src="https://cdn.myanimelist.net/images/anime/12/76049.jpg" alt="Demon Slayer Episode 1">
         <div class="episode-info">
           <h3>Demon Slayer - Episode 1</h3>
-          <p>Tanjiro Kamado's life is shattered when a demon slaughters his family, and his sister Nezuko is turned into a demon. He vows to avenge them.</p>
+          <p>Tanjiro Kamado’s life is shattered when a demon slaughters his family, and his sister Nezuko is turned into a demon. He vows to avenge them.</p>
           <span>Release Date: April 6, 2019</span>
         </div>
       </div>
 
-        <div class="episode-card">
-          <img src="https://cdn.myanimelist.net/images/anime/1441/122795.jpg" alt="Spy x Family Thumbnail">
-          <div class="episode-info">
-            <h3>Spy x Family - Episode 1</h3>
-            <p>Master spy Twilight must create a fake family to execute his mission, adopting the telepathic Anya and marrying the assassin Yor.</p>
-            <span>Release Date: April 9, 2022</span>
+      <div class="episode-card">
+        <img src="https://cdn.myanimelist.net/images/anime/1441/122795.jpg" alt="Spy x Family Episode 1">
+        <div class="episode-info">
+          <h3>Spy x Family - Episode 1</h3>
+          <p>Master spy Twilight must create a fake family to execute his mission, adopting the telepathic Anya and marrying the assassin Yor.</p>
+          <span>Release Date: April 9, 2022</span>
         </div>
-        </div>
+      </div>
     </section>
   </main>
 
+  <footer class="text-center p-3 bg-light mt-4">
+    <p>&copy; 2025 AnimeLIB. All rights reserved.</p>
+  </footer>
 
-    <footer class="text-center p-3 bg-light mt-4">
-        <p>&copy; 2025 AnimeLIB. All rights reserved.</p>
-    </footer>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script src="script.js"></script>
 </body>
 </html>

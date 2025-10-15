@@ -6,9 +6,9 @@
   <title>Anime List - AnimeLIB</title>
   
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  
-    <link rel="stylesheet" href="style.css">
 
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
   
@@ -29,6 +29,12 @@
   </header>
 
     <main class="container my-4"> 
+  
+    <div class="d-flex justify-content-between align-items-center p-3">
+  <button id="themeBtn">DAY THEME / NIGHT THEME</button>
+  <p id="dateTime"></p>
+</div>
+
             <div id="animeCarousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
         <button type="button" data-bs-target="#animeCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -90,7 +96,7 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
-  
+
 
   <section class="anime-gallery">
     <div class="anime-item">
@@ -126,13 +132,61 @@
       <h3>My Hero Academia</h3>
     </div>
   </section>
+
+    <div id="popupForm">
+      <div class="popup-content">
+        <span class="close-btn" id="closePopup">&times;</span>
+        <h4 class="text-center text-danger mb-3">Subscribe for Updates</h4>
+        <form id="subscribeForm">
+          <input type="text" id="subName" placeholder="Enter your name" required />
+          <input type="email" id="subEmail" placeholder="Enter your email" required />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+    
+    <section class="mt-5">
+      <h2 class="text-center mb-3">Contact Us</h2>
+      <form id="contactForm" class="mx-auto" style="max-width:500px;">
+        <input
+          type="text"
+          id="contactName"
+          class="form-control mb-2"
+          placeholder="Your Name"
+          required
+        />
+        <input
+          type="email"
+          id="contactEmail"
+          class="form-control mb-2"
+          placeholder="Your Email"
+          required
+        />
+        <input
+          type="password"
+          id="password"
+          class="form-control mb-2"
+          placeholder="Password (min 6 chars)"
+          required
+        />
+        <input
+          type="password"
+          id="confirmPassword"
+          class="form-control mb-2"
+          placeholder="Confirm Password"
+          required
+        />
+        <button type="submit" class="btn btn-success w-100">Submit</button>
+        <p id="errorMsg" class="text-danger mt-2 text-center"></p>
+      </form>
+    </section>
   </main>
 
     <footer class="text-center p-3 bg-light mt-4">
     <p>&copy; 2025 AnimeLIB. All rights reserved.</p>
-    <p class="mb-0">Team Members: John Doe, Jane Smith, Alex Kim</p>
   </footer>
   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
 </body>
 </html>
