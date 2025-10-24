@@ -951,3 +951,87 @@ body.day-theme #subscribeForm button:hover {
   font-weight: 500;
   font-size: 0.95rem;
 }
+
+.accordion-button {
+  background-color: #1f1f1f;
+  color: #ff007f;
+  font-weight: 600;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #ff007f;
+  color: #fff;
+}
+
+.accordion-body {
+  background-color: #2a2a2a;
+  color: #eee;
+}
+
+
+/* ---- Modal & stars additions (for script.js modal) ---- */
+#detailModal{ position:fixed; inset:0; display:none; align-items:center; justify-content:center; background: rgba(0,0,0,0.55); z-index:9999; }
+#detailModal .modal-card{ background:var(--card, #111); color:var(--text, #fff); border-radius:12px; width:min(950px,96%); display:grid; grid-template-columns:320px 1fr; gap:16px; padding:16px; transform:translateY(8px); opacity:0; transition:all .22s; }
+#detailModal.show{ display:flex; }
+#detailModal.show .modal-card{ transform:none; opacity:1; }
+
+/* image slot */
+#detailModal .image-slot img{ width:100%; height:100%; object-fit:cover; border-radius:8px; }
+
+/* stars */
+.stars{ display:flex; gap:8px; margin:8px 0; align-items:center; }
+.star{ cursor:pointer; width:36px; height:36px; display:inline-flex; align-items:center; justify-content:center; border-radius:8px; transition:transform .12s, background .12s; background:transparent; border:1px solid rgba(255,255,255,0.04); }
+.star svg{ width:18px; height:18px; fill:transparent; stroke:var(--muted,#9aa8b6); stroke-width:1.6; }
+.star.active svg{ fill:var(--accent,#ff007f); stroke:var(--accent,#ff007f); }
+
+/* synopsis read-more */
+.synopsis{ max-height:72px; overflow:hidden; transition:max-height .28s ease; color:var(--muted,#d1d5db); }
+.synopsis.open{ max-height:420px; }
+
+/* button small styles used in modal */
+.btn-small{ padding:8px 12px; border-radius:8px; border:0; background:var(--accent,#ff007f); color:#fff; cursor:pointer; }
+.btn-ghost{ padding:8px 12px; border-radius:8px; border:1px solid rgba(255,255,255,0.06); background:transparent; color:inherit; cursor:pointer; }
+
+/* focus style for accessibility */
+.show-focus a:focus, .show-focus button:focus, .show-focus input:focus, .show-focus .anime-item:focus { outline: 3px solid rgba(255,0,127,0.35); outline-offset:3px; border-radius:6px; }
+
+/* small responsive tweak */
+@media (max-width:880px) {
+  #detailModal .modal-card{ grid-template-columns: 1fr; padding:12px; }
+  #detailModal .image-slot img{ height:240px; object-fit:cover; }
+}
+
+.read-more-btn {
+  background-color: #ff4081;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 5px 10px;
+  margin-top: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.read-more-btn:hover {
+  background-color: #ff6699;
+}
+
+.star-rating {
+  margin-top: 8px;
+}
+
+.star {
+  font-size: 24px;
+  color: #ccc;
+  cursor: pointer;
+  margin-right: 5px;
+  transition: color 0.2s ease;
+}
+
+.star.active {
+  color: gold;
+}
+
+.star:hover,
+.star:hover ~ .star {
+  color: gold;
+}
