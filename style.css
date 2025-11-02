@@ -1,4 +1,6 @@
-/* Reset some basics */
+/* ------------------------------
+   GLOBAL RESET & BASICS
+------------------------------ */
 * {
   margin: 0;
   padding: 0;
@@ -6,9 +8,9 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #121212;
-  color: #eee;
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  background-color: #000;
+  color: #fff;
   line-height: 1.6;
   min-height: 100vh;
   display: flex;
@@ -16,76 +18,32 @@ body {
   transition: background-color 0.6s ease;
 }
 
-/* Container for centering content */
+/* Containers */
 .container {
   width: 90%;
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
-/* Header */
-header {
-  background-color: #1f1f1f;
-  padding: 20px 0;
-  border-bottom: 2px solid #e91e63;
+/* ------------------------------
+   NAVBAR / HEADER
+------------------------------ */
+header, .navbar {
+  background-color: #b0003a !important;
+  border-bottom: 3px solid #ff004f;
 }
 
-header h1 {
-  color: #e91e63;
-  text-align: center;
-  font-weight: 900;
-  font-size: 2.5rem;
-  margin-bottom: 10px;
+.navbar-brand {
+  color: #ff004f !important;
+  font-weight: bold;
 }
 
-/* Navigation */
-nav ul {
-  display: flex;
-  justify-content: center;
-  list-style: none;
-  flex-wrap: wrap;
-  gap: 15px;
-}
-
-nav ul li a {
-  color: #eee;
-  text-decoration: none;
-  font-weight: 600;
-  padding: 8px 16px;
-  border-radius: 25px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-nav ul li a:hover {
-  background-color: #e91e63;
-  color: #fff;
-}
-
-/* Example ID selector */
-#top-banner {
-  background-color: #2a2a2a;
-  padding: 30px;
-  text-align: center;
-  border: 2px dashed #e91e63;
-}
-
-/* Typography examples */
-h2, h3, h4 {
-  color: #e91e63;
-  margin-bottom: 15px;
-}
-
-p {
-  margin-bottom: 15px;
-  font-size: 1.1rem;
-}
-
-/* Links inside content */
-a {
-  color: #e91e63;
-  text-decoration: none;
+.navbar-nav .nav-link {
+  color: #fff !important;
+  font-weight: 500;
   transition: color 0.3s ease;
 }
+
 
 a:hover {
   color: #ff6699;
@@ -497,7 +455,7 @@ form button:hover {
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  transition: background 0.3s;
+ 
 }
 
 .contact-form button:hover {
@@ -564,102 +522,347 @@ body {
 .navbar-nav .nav-link {
   color: #ffcccc !important;
 }
-.navbar-nav .nav-link:hover,
+
 .navbar-nav .nav-link.active {
   color: #ff004f !important;
 }
 
-/* Hero (Welcome) */
+/* Override Bootstrap bg-warning */
 .bg-warning {
-  background: linear-gradient(135deg, #ff004f, #ffcc00) !important;
-  color: white;
+ background: #3F5EFB;
+background: linear-gradient(nulldeg, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
+  color: #fff !important;
 }
 
-/* Cards */
+.text-warning {
+  color: #ff004f !important;
+}
+
+
+
+
+h1, h2, h3, h4 {
+  color: #ff004f;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #ddd;
+}
+
+/* Accent before section titles */
+h2::before {
+  content: "★ ";
+  color: #ff004f;
+}
+
+/* ------------------------------
+   CARDS
+------------------------------ */
 .card {
-  background-color: #1a1a1a;
+  background-color: #1a1a1a !important;
+  border: 2px solid #ff004f;
+  border-radius: 15px;
   color: white;
-  border: none;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 5px 15px rgba(255, 0, 79, 0.4);
-}
-.card-img-top {
-  height: 220px;
-  object-fit: cover;
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px #ff004f;
 }
 
-/* Subscribe (Stay with us) */
-.bg-dark {
-  background-color: #000 !important;
-}
-.btn-warning {
-  background-color: #ff004f;
-  border: none;
-}
-.btn-warning:hover {
-  background-color: #ffcc00;
-  color: black;
-}
-
-/* Footer */
-footer {
-  background-color: #000;
-  color: #ffcccc;
-}
-
-/* About page image */
-img {
-  border-radius: 10px;
-}
-
-/* Media Queries */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 1.8rem;
-  }
-  .card {
-    margin-bottom: 15px;
-  }
-}
-/* ABOUT PAGE ENHANCEMENTS */
-
-/* Hero Section */
-.hero-about {
-  background: linear-gradient(135deg, #ff004f, #ffcc00);
-  margin-top: 60px; /* compensate fixed navbar */
-}
-
-/* Team Cards */
-.team-card {
-  border: none;
-  background-color: #1a1a1a;
-  color: white;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.team-card img {
-  height: 260px;
-  object-fit: cover;
-}
-.team-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 5px 15px rgba(255, 0, 79, 0.5);
-}
-
-/* Join Us */
-.join-us {
-  background: linear-gradient(135deg, #ff004f, #d000ff);
-}
-.join-us .btn {
-  background-color: white;
+.card-title {
   color: #ff004f;
   font-weight: bold;
 }
-.join-us .btn:hover {
-  background-color: #ffcc00;
-  color: black;
+
+.card-img-top {
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* ------------------------------
+   BUTTONS
+------------------------------ */
+.btn-danger, .btn-outline-warning {
+  font-weight: bold;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.btn-danger {
+  background-color: #ff004f;
+  border: none;
+}
+
+.btn-danger:hover {
+  background-color: #ff004f !important;
+  color: #000;
+}
+
+.btn-outline-warning {
+  border: 2px solid #ff004f;
+  color: #ff004f;
+}
+
+.btn-outline-warning:hover {
+  background-color: #ff004f;
+  color: #000;
+}
+
+/* ------------------------------
+   FORMS
+------------------------------ */
+form {
+  background-color: #111;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(255,0,79,0.3);
+}
+
+.form-label {
+  color: #ff004f;
+  font-weight: bold;
+}
+
+.form-control {
+  background-color: #222;
+  color: #fff;
+  border: 1px solid #ff004f;
+}
+
+.form-control:focus {
+  border-color: #ff004f;
+  box-shadow: 0 0 10px #ff004f;
+}
+
+/* ------------------------------
+   HERO SECTIONS (Gradient headers)
+------------------------------ */
+.hero-about,
+.hero-contact,
+.hero-reviews {
+  background: linear-gradient(135deg, #ff004f, #ff004f);
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+  margin-top: 60px;
+  border-bottom: 2px solid #ff004f;
+}
+
+/* ------------------------------
+   FOOTER
+------------------------------ */
+footer {
+  background-color: #b0003a;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  border-top: 2px solid #ff004f;
+  margin-top: auto;
+}
+
+/* ------------------------------
+   RESPONSIVE DESIGN
+------------------------------ */
+@media (max-width: 768px) {
+  h1 { font-size: 1.8rem; }
+  .card { margin-bottom: 15px; }
+  nav ul { flex-direction: column; align-items: center; }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  body { font-size: 16px; }
+}
+
+@media (min-width: 1025px) {
+  body { font-size: 18px; }
+}
+header {
+  background-color: #000 !important;
+  border-bottom: 3px solid #ff004f;
+}
+
+.navbar {
+  background-color: transparent !important;
+  padding: 10px 0;
+}
+
+.reviews-section {
+  margin-bottom: 300px; /* adds scroll space */
+}
+
+#themeBtn {
+  background-color: #ff007f;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#themeBtn:hover {
+  background-color: #ff4da6;
+  transform: scale(1.05);
+}
+
+body.day-theme {
+  background-color: #f5f5f5;
+}
+
+body.day-theme header,
+body.day-theme footer {
+  background-color: #e0e0e0;
+}
+
+/* Basic page / typography */
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  background-color: #222;
+  color: #eee;
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* Header / Navbar spacing handled by Bootstrap; no override needed here */
+
+/* Page container */
+main.container {
+  padding-top: 1.5rem;
+  padding-bottom: 2.5rem;
+}
+
+/* Card appearance (consistent with Contact page) */
+.card {
+  background-color: #1a1a1a !important;
+  border: 2px solid #ff004f;
+  border-radius: 12px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(255,0,79,0.12);
+}
+
+.card-title {
+  color: #ff004f;
+}
+
+/* Form styling */
+.bg-secondary {
+  background-color: #111 !important;
+}
+.form-label.text-warning {
+  color: #ff004f !important;
+  font-weight: 600;
+}
+
+/* FAQ items appended by JS */
+.faq-item {
+  background-color: #111;
+}
+
+/* Extra controls container (buttons appended by JS) */
+#extraControls .btn {
+  border-radius: 10px;
+}
+
+/* Date block */
+#currentTime {
+  font-weight: 600;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .card { margin-bottom: 1rem; }
+  main.container { padding-left: 1rem; padding-right: 1rem; }
+}
+:root{
+  --bg:#071029;
+  --card:#0f172a;
+  --muted:#94a3b8;
+  --accent:#7c3aed;
+  --accent2:#06b6d4;
+  --glass: rgba(255,255,255,0.03);
+}
+
+/* ===== THEMES ===== */
+body.dark-theme {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body.light-theme {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Smooth color transition */
+body {
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* ===== HERO SECTION ===== */
+.hero-section {
+  background: linear-gradient(135deg, #ff004f, #ffcc00);
+  color: white;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  background-color: transparent;
+}
+.nav-link.active {
+  color: #ff004f !important;
+}
+
+/* ===== SCROLL PROGRESS BAR ===== */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  background-color: #ff004f;
+  z-index: 9999;
+}
+
+/* ===== TOAST ===== */
+#toast-container {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 10000;
+}
+.toast {
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 6px;
+  margin-top: 5px;
+}
+
+/* ===== CARD STYLING ===== */
+.card {
+  background-color: rgba(255,255,255,0.05);
+  border: 1px solid #ff004f;
+  color: inherit;
+  transition: transform 0.2s ease;
+}
+.card:hover {
+  transform: scale(1.03);
+}
+body.light-theme .card {
+  background-color: #f9f9f9;
+  border-color: #ff004f;
+  color: #000;
 }
 
 .anime-gallery {
