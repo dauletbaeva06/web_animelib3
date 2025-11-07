@@ -1,62 +1,331 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>AnimeLIB - FAQ</title>
+
+  <!-- Google Font: Quicksand -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap CSS (CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Site CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- jQuery (used for suggestions click helper) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
-  <!-- Навигация -->
-  <header class="navbar">
-    <div class="logo">AnimeLIB</div>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="news.html">News</a></li>
-        <li><a href="anime_list.html">Anime List</a></li>
-        <li><a href="episodes.html">Episodes</a></li>
-        <li><a href="reviews.html">Reviews</a></li>
-        <li><a href="faq.html" class="active">FAQ</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <!-- Gradient Progress Bar (top) -->
+  <div id="progress-bar" role="progressbar" aria-hidden="true"></div>
 
-  <main class="container">
-    <section class="faq">
-      <h2>Frequently Asked Questions</h2>
+  <div class="container-fluid">
 
-      <div class="faq-item">
-        <h3>1. Is AnimeLIB free to use?</h3>
-        <p>Yes! AnimeLIB is completely free. You can browse anime lists, read reviews, and check out news without any charges.</p>
+    <!-- HEADER: hamburger left of brand -->
+    <header class="bg-dark text-light sticky-top">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary">
+        <div class="container-fluid align-items-center">
+
+          <!-- Hamburger toggles sidebar collapse (#sidebarMenu). Left of brand. -->
+          <button class="btn btn-dark me-2 d-flex align-items-center" type="button"
+                  data-bs-toggle="collapse" data-bs-target="#sidebarMenu"
+                  aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle sidebar">
+            <span class="hamburger-icon" aria-hidden="true"></span>
+          </button>
+
+          <!-- Brand -->
+          <a class="navbar-brand fw-bold text-light fs-4 ms-0" href="index.html">AnimeLIB</a>
+
+          <!-- Standard navbar toggler -->
+          <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                  aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse justify-content-end mt-2 mt-lg-0" id="navbarNav">
+            <ul id="mainNav" class="navbar-nav text-center">
+              <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+              <li class="nav-item"><a class="nav-link" href="news.html">News</a></li>
+              <li class="nav-item"><a class="nav-link" href="anime_list.html">Anime List</a></li>
+              <li class="nav-item"><a class="nav-link" href="episodes.html">Episodes</a></li>
+              <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
+              <li class="nav-item"><a class="nav-link active" href="faq.html" aria-current="page">FAQ</a></li>
+              <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+
+        </div>
+      </nav>
+    </header>
+
+    <div class="row g-0">
+      <!-- Sidebar collapse (hidden by default) -->
+      <aside id="sidebarMenu" class="collapse col-lg-3 col-md-4 col-sm-12 sidebar-col" aria-label="Sidebar with useful tools">
+        <div class="p-3 p-md-4 grid-sidebar d-flex flex-column h-100">
+
+          <!-- Quick Links -->
+          <div class="mb-3">
+            <h6 class="sidebar-section-title">Quick Links</h6>
+            <ul class="list-unstyled sidebar-links">
+              <li><a href="index.html" class="sidebar-link">🏠 Home</a></li>
+              <li><a href="news.html" class="sidebar-link">📰 News</a></li>
+              <li><a href="faq.html" class="sidebar-link">❓ FAQ</a></li>
+              <li><a href="anime_list.html" class="sidebar-link">🎬 AnimeLIB</a></li>
+            </ul>
+          </div>
+
+          <!-- Tools & Utilities -->
+          <div class="mb-3">
+            <h6 class="sidebar-section-title">Tools &amp; Utilities</h6>
+
+            <!-- Anime Release Calendar -->
+            <div class="tool-box mb-2">
+              <div class="tool-title small mb-1">🎞️ Release Calendar</div>
+              <div id="release-calendar" class="tool-content small">
+                <strong id="rc-today">Today</strong><br>
+                Upcoming: <span id="rc-upcoming">Attack on Titan Final Season (Nov 10)</span>
+              </div>
+            </div>
+
+            <!-- Random Anime Generator -->
+            <div class="tool-box mb-2">
+              <div class="tool-title small mb-1">🧭 Random Anime</div>
+              <div class="d-flex gap-2">
+                <button id="randAnimeBtn" class="btn btn-sm btn-outline-secondary">Generate</button>
+                <div id="randAnimeResult" class="small align-self-center text-pink">Press Generate</div>
+              </div>
+            </div>
+
+            <!-- Top Airing Shows -->
+            <div class="tool-box mb-1">
+              <div class="tool-title small mb-1">📊 Top Airing</div>
+              <ol id="topAiringList" class="small mb-0">
+                <li>Loading...</li>
+              </ol>
+              <div class="mt-2">
+                <button id="refreshTopAiring" class="btn btn-sm btn-outline-secondary">Refresh</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fun corner -->
+          <div class="mb-3">
+            <h6 class="sidebar-section-title">Fun Corner</h6>
+            <div class="tool-box mb-2">
+              <div class="tool-title small mb-1">💬 Random Quote</div>
+              <div id="randomQuote" class="tool-content small fst-italic">"The path to the future..."</div>
+            </div>
+
+            <!-- Theme toggle -->
+            <div class="tool-box">
+              <div class="d-grid">
+                <button class="btn btn-outline-secondary theme-toggle">Change Theme</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- About at bottom -->
+          <div id="sidebar-animelib" class="mt-auto pt-3 border-top border-secondary">
+            <h6>About AnimeLib</h6>
+            <p class="small mb-1">Your ultimate anime hub — for fans, by fans!</p>
+            <img id="animated-logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRO7d7STbW6qTgiOsaHbmUA376gKlGntnuGPw&s"
+                 alt="AnimeLib Logo" width="80" height="80">
+          </div>
+
+        </div>
+      </aside>
+
+      <!-- Main content area -->
+      <main id="mainContent" class="col main-col p-3 p-md-4">
+
+        <!-- Search (restored exactly as before) -->
+        <section class="search-section mb-4 position-relative">
+          <h2 class="mb-3 text-center">Search FAQ</h2>
+          <div class="position-relative">
+            <input type="text" id="searchBar" class="form-control bg-dark text-light border-pink" placeholder="Type to search FAQs...">
+            <ul id="suggestions" class="list-unstyled"></ul>
+          </div>
+        </section>
+
+        <!-- FAQ items -->
+        <section class="faq mb-4">
+          <h2 class="mb-3">Frequently Asked Questions</h2>
+
+          <div class="row" id="faq-list">
+            <div class="col-lg-6 col-md-12 mb-3 mb-lg-4 faq-block" data-title="Is AnimeLIB free to use?">
+              <div class="faq-item p-3 px-lg-4">
+                <h3 class="faq-question">1. Is AnimeLIB free to use?</h3>
+                <p class="faq-answer mb-0">Yes! AnimeLIB is completely free. You can browse anime lists, read reviews, and check out news without any charges.</p>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 mb-3 mb-lg-4 faq-block" data-title="Do I need an account?">
+              <div class="faq-item p-3 px-lg-4">
+                <h3 class="faq-question">2. Do I need an account?</h3>
+                <p class="faq-answer mb-0">No account is needed to explore content. However, in the future, we may add an option to create an account to leave reviews.</p>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 mb-3 mb-lg-4 faq-block" data-title="How often is the content updated?">
+              <div class="faq-item p-3 px-lg-4">
+                <h3 class="faq-question">3. How often is the content updated?</h3>
+                <p class="faq-answer mb-0">We update the anime list and news sections weekly to keep up with the latest releases.</p>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 mb-3 mb-lg-4 faq-block" data-title="Can I request an anime?">
+              <div class="faq-item p-3 px-lg-4">
+                <h3 class="faq-question">4. Can I request an anime?</h3>
+                <p class="faq-answer mb-0">Yes! Just use our <a href="contact.html">contact page</a> and send your request. We’ll try to add it as soon as possible.</p>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 mb-3 mb-lg-4 faq-block" data-title="Are episodes streamed directly here?">
+              <div class="faq-item p-3 px-lg-4">
+                <h3 class="faq-question">5. Are episodes streamed directly here?</h3>
+                <p class="faq-answer mb-0">No. AnimeLIB does not host or stream anime. We provide information, summaries, and links to official sources only.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Carousel (kept exactly the same) -->
+        <section class="carousel-section mb-4 mb-lg-5">
+          <div id="animeCarousel" class="carousel slide" data-bs-ride="carousel" aria-label="Featured anime carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#animeCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#animeCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#animeCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              <button type="button" data-bs-target="#animeCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+              <button type="button" data-bs-target="#animeCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+              <button type="button" data-bs-target="#animeCarousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
+              <button type="button" data-bs-target="#animeCarousel" data-bs-slide-to="6" aria-label="Slide 7"></button>
+              <button type="button" data-bs-target="#animeCarousel" data-bs-slide-to="7" aria-label="Slide 8"></button>
+              <button type="button" data-bs-target="#animeCarousel" data-bs-slide-to="8" aria-label="Slide 9"></button>
+            </div>
+
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="https://miro.medium.com/v2/resize:fit:1185/1*nLtEGIWBncCZwlsvVxLtEQ@2x.jpeg" class="d-block w-100 carousel-img" alt="Attack on Titan">
+                <div class="carousel-caption d-none d-md-block" id="caption1">
+                  <h5>Attack on Titan</h5>
+                  <p>Epic battles and deep story</p>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <img src="https://i.pinimg.com/originals/40/91/e3/4091e3381b27a3bb2bd367abef8e97b6.jpg" class="d-block w-100 carousel-img" alt="Demon Slayer">
+                <div class="carousel-caption d-none d-md-block" id="caption2">
+                  <h5>Demon Slayer</h5>
+                  <p>Beautiful animation and touching story</p>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <img src="https://static.wikia.nocookie.net/naruto/images/d/dd/Naruto_Uzumaki%21%21.png/revision/latest?cb=20170816203155&path-prefix=ru" class="d-block w-100 carousel-img" alt="Naruto">
+                <div class="carousel-caption d-none d-md-block" id="caption3">
+                  <h5>Naruto</h5>
+                  <p>Classic journey of friendship</p>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <img src="https://wallpapers.com/images/featured/bleach-anime-pictures-x5ildyvb7u41kblh.jpg" class="d-block w-100 carousel-img" alt="Bleach">
+                <div class="carousel-caption d-none d-md-block" id="caption4">
+                  <h5>Bleach</h5>
+                  <p>Intense battles and spiritual adventures</p>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <img src="https://cms.rhinoshield.app/public/images/FM_crossover_banner_1800_aa5b501dff.jpg" class="d-block w-100 carousel-img" alt="Fullmetal Alchemist">
+                <div class="carousel-caption d-none d-md-block" id="caption5">
+                  <h5>Fullmetal Alchemist</h5>
+                  <p>A tale of brotherhood and alchemy</p>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <img src="https://imgsrv.crunchyroll.com/cdn-cgi/image/fit=cover,format=auto,quality=85,width=1920/keyart/G63K98PZ6-backdrop_wide" class="d-block w-100 carousel-img" alt="One Punch Man">
+                <div class="carousel-caption d-none d-md-block" id="caption6">
+                  <h5>One Punch Man</h5>
+                  <p>Heroic action with a comedic twist</p>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <img src="https://m.media-amazon.com/images/S/pv-target-images/c5b267aeb5b6882024f75db745bb009c8fd7a95dfdd2743105f3ea6132d434d7.jpg" class="d-block w-100 carousel-img" alt="My Hero Academia">
+                <div class="carousel-caption d-none d-md-block" id="caption7">
+                  <h5>My Hero Academia</h5>
+                  <p>Superhero action and inspiring growth</p>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <img src="https://mlpnk72yciwc.i.optimole.com/cqhiHLc.IIZS~2ef73/w:auto/h:auto/q:75/https://bleedingcool.com/wp-content/uploads/2021/01/5252-SeriesHeaders_HxH_2000x800.jpg" class="d-block w-100 carousel-img" alt="Hunter x Hunter">
+                <div class="carousel-caption d-none d-md-block" id="caption8">
+                  <h5>Hunter x Hunter</h5>
+                  <p>Adventure and strategic battles</p>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <img src="https://cms.rhinoshield.app/public/images/DN_banner_1800_dac1a50875.jpg" class="d-block w-100 carousel-img" alt="Death Note">
+                <div class="carousel-caption d-none d-md-block" id="caption9">
+                  <h5>Death Note</h5>
+                  <p>Psychological thriller with moral dilemmas</p>
+                </div>
+              </div>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#animeCarousel" data-bs-slide="prev" aria-label="Previous slide">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#animeCarousel" data-bs-slide="next" aria-label="Next slide">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </section>
+
+      </main>
+    </div>
+
+    <!-- Animated counters at bottom (transparent, larger numbers) -->
+    <div class="stats-bar py-3">
+      <div class="container d-flex justify-content-around align-items-center">
+        <div class="stat text-center">
+          <div class="stat-number" data-target="10234">0</div>
+          <div class="stat-label small">Users</div>
+        </div>
+        <div class="stat text-center">
+          <div class="stat-number" data-target="4.8" data-decimals="1">0</div>
+          <div class="stat-label small">Rating</div>
+        </div>
+        <div class="stat text-center">
+          <div class="stat-number" data-target="523">0</div>
+          <div class="stat-label small">Articles</div>
+        </div>
       </div>
+    </div>
 
-      <div class="faq-item">
-        <h3>2. Do I need an account?</h3>
-        <p>No account is needed to explore content. However, in the future, we may add an option to create an account to leave reviews.</p>
-      </div>
+    <footer class="grid-footer bg-dark text-light text-center py-2 py-md-3 mt-0 mt-lg-2">
+      <p class="mb-3">&copy; 2025 Anime World | Created by <strong>Dinara Aitolkyn Tomiris Nurassyl</strong></p>
+    </footer>
 
-      <div class="faq-item">
-        <h3>3. How often is the content updated?</h3>
-        <p>We update the anime list and news sections weekly to keep up with the latest releases.</p>
-      </div>
+  </div>
 
-      <div class="faq-item">
-        <h3>4. Can I request an anime?</h3>
-        <p>Yes! Just use our <a href="contact.html">contact page</a> and send your request. We’ll try to add it as soon as possible.</p>
-      </div>
+  <!-- Notification -->
+  <div id="notification" aria-live="polite" role="status"></div>
 
-      <div class="faq-item">
-        <h3>5. Are episodes streamed directly here?</h3>
-        <p>No. AnimeLIB does not host or stream anime. We provide information, summaries, and links to official sources only.</p>
-      </div>
-    </section>
-  </main>
+  <!-- Bootstrap JS (bundle includes Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-  <footer>
-    <p>&copy; 2025 Anime World. All rights reserved.</p>
-  </footer>
+  <!-- App script -->
+  <script src="script.js"></script>
 </body>
 </html>

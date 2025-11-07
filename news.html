@@ -1,64 +1,355 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>AnimeLIB - News</title>
+
+  <!-- Google Font: Quicksand -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Site styles -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
-  <!-- Навигация -->
-  <header class="navbar">
-    <div class="logo">AnimeLIB</div>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="news.html" class="active">News</a></li>
-        <li><a href="anime_list.html">Anime List</a></li>
-        <li><a href="episodes.html">Episodes</a></li>
-        <li><a href="reviews.html">Reviews</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <!-- Gradient Progress Bar -->
+  <div id="progress-bar" role="progressbar" aria-hidden="true"></div>
 
-  <main class="container">
-    <section class="news">
-      <h2>Latest Anime News</h2>
+  <div class="container-fluid">
 
-      <article class="news-card">
-        <img src="https://cdn.myanimelist.net/images/anime/1808/95033.jpg" alt="Demon Slayer News">
-        <div class="news-info">
-          <h3>Demon Slayer: New Season Announced</h3>
-          <p>The hit anime Demon Slayer will return with a brand new season following Tanjiro and Nezuko's adventures against the Upper Rank demons.</p>
-          <span>Published: March 1, 2025</span>
+    <!-- HEADER -->
+    <header class="bg-dark text-light sticky-top">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary">
+        <div class="container-fluid align-items-center">
+
+          <!-- Hamburger left of brand -->
+          <button class="btn btn-dark me-2 d-flex align-items-center" type="button"
+                  data-bs-toggle="collapse" data-bs-target="#sidebarMenu"
+                  aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle sidebar">
+            <span class="hamburger-icon" aria-hidden="true"></span>
+          </button>
+
+          <a class="navbar-brand fw-bold text-light fs-4 ms-0" href="index.html">AnimeLIB</a>
+
+          <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                  aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse justify-content-end mt-2 mt-lg-0" id="navbarNav">
+            <ul id="mainNavNews" class="navbar-nav text-center">
+              <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+              <li class="nav-item"><a class="nav-link active" href="news.html" aria-current="page">News</a></li>
+              <li class="nav-item"><a class="nav-link" href="anime_list.html">Anime List</a></li>
+              <li class="nav-item"><a class="nav-link" href="episodes.html">Episodes</a></li>
+              <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
+              <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+              <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+
         </div>
-      </article>
+      </nav>
+    </header>
 
-      <article class="news-card">
-        <img src="https://cdn.myanimelist.net/images/anime/4/19644.jpg" alt="Naruto News">
-        <div class="news-info">
-          <h3>Naruto Returns with a Remastered Edition</h3>
-          <p>Fans can relive the journey of Naruto Uzumaki with a remastered anime featuring updated animation and improved visuals.</p>
-          <span>Published: February 25, 2025</span>
+    <div class="row g-0">
+
+      <!-- Sidebar (same id as FAQ so collapse toggles both pages) -->
+      <aside id="sidebarMenu" class="collapse col-lg-3 col-md-4 col-sm-12 sidebar-col" aria-label="Sidebar with useful tools">
+        <div class="p-3 p-md-4 grid-sidebar d-flex flex-column h-100">
+
+          <div class="mb-3">
+            <h6 class="sidebar-section-title">Quick Links</h6>
+            <ul class="list-unstyled sidebar-links">
+              <li><a href="index.html" class="sidebar-link">🏠 Home</a></li>
+              <li><a href="news.html" class="sidebar-link">📰 News</a></li>
+              <li><a href="faq.html" class="sidebar-link">❓ FAQ</a></li>
+              <li><a href="anime_list.html" class="sidebar-link">🎬 AnimeLIB</a></li>
+            </ul>
+          </div>
+
+          <div class="mb-3">
+            <h6 class="sidebar-section-title">Tools &amp; Utilities</h6>
+
+            <div class="tool-box mb-2">
+              <div class="tool-title small mb-1">🎞️ Release Calendar</div>
+              <div id="rc-news" class="tool-content small">
+                <strong id="rc-today-news">Today</strong><br>
+                Upcoming: <span id="rc-upcoming-news">Attack on Titan Final Season (Nov 10)</span>
+              </div>
+            </div>
+
+            <div class="tool-box mb-2">
+              <div class="tool-title small mb-1">🧭 Random Anime</div>
+              <div class="d-flex gap-2">
+                <button id="randAnimeBtnNews" class="btn btn-sm btn-outline-secondary">Generate</button>
+                <div id="randAnimeResultNews" class="small align-self-center text-pink">Press Generate</div>
+              </div>
+            </div>
+
+            <div class="tool-box mb-1">
+              <div class="tool-title small mb-1">📊 Top Airing</div>
+              <ol id="topAiringListNews" class="small mb-0">
+                <li>Loading...</li>
+              </ol>
+              <div class="mt-2">
+                <button id="refreshTopAiringNews" class="btn btn-sm btn-outline-secondary">Refresh</button>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="mb-3">
+            <h6 class="sidebar-section-title">Fun Corner</h6>
+            <div class="tool-box mb-2">
+              <div class="tool-title small mb-1">💬 Random Quote</div>
+              <div id="randomQuoteNews" class="tool-content small fst-italic">"The path to the future..."</div>
+            </div>
+
+            <div class="tool-box">
+              <div class="d-grid">
+                <button class="btn btn-outline-secondary theme-toggle">Change Theme</button>
+              </div>
+            </div>
+          </div>
+
+          <div id="sidebar-animelib" class="mt-auto pt-3 border-top border-secondary">
+            <h6>About AnimeLib</h6>
+            <p class="small mb-1">Your ultimate anime hub — for fans, by fans!</p>
+            <img id="animated-logo-news" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRO7d7STbW6qTgiOsaHbmUA376gKlGntnuGPw&s"
+                 alt="AnimeLib Logo" width="80" height="80">
+          </div>
+
         </div>
-      </article>
+      </aside>
 
-      <article class="news-card">
-        <img src="https://cdn.myanimelist.net/images/anime/3/40451.jpg" alt="Bleach News">
-        <div class="news-info">
-          <h3>Bleach: Thousand-Year Blood War Arc Continues</h3>
-          <p>Ichigo Kurosaki returns in the continuation of the legendary Bleach saga, bringing epic battles and new storylines to fans worldwide.</p>
-          <span>Published: February 20, 2025</span>
+      <!-- Main column -->
+      <main id="mainContent" class="col main-col p-3 p-md-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h2 class="mb-0">Latest Anime News</h2>
+
+          <!-- Filters dropdown -->
+          <div class="dropdown">
+            <button class="btn btn-outline-secondary dropdown-toggle" id="filtersDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              Filters
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="filtersDropdown">
+              <li><a class="dropdown-item filter-option active" href="#" data-filter="all">Show All</a></li>
+              <li><a class="dropdown-item filter-option" href="#" data-filter="episodes">Episodes</a></li>
+              <li><a class="dropdown-item filter-option" href="#" data-filter="tops">Tops</a></li>
+              <li><a class="dropdown-item filter-option" href="#" data-filter="events">Events</a></li>
+              <li><a class="dropdown-item filter-option" href="#" data-filter="announcements">Announcements</a></li>
+            </ul>
+          </div>
         </div>
-      </article>
-    </section>
-  </main>
 
-  <footer>
-    <p>&copy; 2025 Anime World. All rights reserved.</p>
-  </footer>
+        <!-- NEWS GRID: 12 cards (placeholders) -->
+        <div id="news-grid" class="row g-4">
+          <div id="news-grid" class="row g-4">
+          <!-- cards (same as earlier list) -->
+          <div class="col-lg-3 col-md-6 col-sm-12 news-card" data-category="episodes">
+            <div class="card h-100 news-card-inner">
+              <img src="https://m.media-amazon.com/images/M/MV5BZjliODY5MzQtMmViZC00MTZmLWFhMWMtMjMwM2I3OGY1MTRiXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" class="card-img-top" alt="Attack on Titan ep">
+              <div class="card-body">
+                <h5 class="card-title">Attack on Titan — Episode 87 Air Date</h5>
+                <p class="card-text small">Season finale scheduled next Saturday — intense confrontation teased.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-sm-12 news-card" data-category="tops">
+            <div class="card h-100 news-card-inner">
+              <img src="https://img.yani.tv/posters/full/1636691396.jpg" class="card-img-top" alt="Jujutsu Kaisen">
+              <div class="card-body">
+                <h5 class="card-title">Jujutsu Kaisen Tops Streaming Charts</h5>
+                <p class="card-text small">Peaks across multiple platforms after latest arc release.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-sm-12 news-card" data-category="events">
+            <div class="card h-100 news-card-inner">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpxZtwi99dd6cpH3GDJYmq0fJ2l6sVgcUyMg&s" class="card-img-top" alt="Anime Expo">
+              <div class="card-body">
+                <h5 class="card-title">Anime Expo — Guest Lineup Announced</h5>
+                <p class="card-text small">Voice actors and creators scheduled for panels this summer.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-sm-12 news-card" data-category="announcements">
+            <div class="card h-100 news-card-inner">
+              <img src="https://naruto-official.com/special/20th/carousel_1.webp" class="card-img-top" alt="Naruto Remaster">
+              <div class="card-body">
+                <h5 class="card-title">Naruto Remaster — Official Announcement</h5>
+                <p class="card-text small">Remastered visuals to be released in select regions later this year.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5 -->
+          <div class="col-lg-3 col-md-6 col-sm-12 news-card" data-category="episodes">
+            <div class="card h-100 news-card-inner">
+              <img src="https://www.soyuz.ru/public/uploads/files/2/7630514/20231217192728f6ad68603d.jpg" class="card-img-top" alt="One Piece Ep">
+              <div class="card-body">
+                <h5 class="card-title">One Piece — New Episode Preview</h5>
+                <p class="card-text small">Preview drops revealing a new island arc and a returning character.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6 -->
+          <div class="col-lg-3 col-md-6 col-sm-12 news-card" data-category="tops">
+            <div class="card h-100 news-card-inner">
+              <img src="https://musicart.xboxlive.com/7/74376600-0000-0000-0000-000000000002/504/image.jpg" class="card-img-top" alt="Spy x Family">
+              <div class="card-body">
+                <h5 class="card-title">Spy x Family Ranks High in Viewer Polls</h5>
+                <p class="card-text small">Comedy-drama keeps its spot among top family-friendly titles.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7 -->
+          <div class="col-lg-3 col-md-6 col-sm-12 news-card" data-category="events">
+            <div class="card h-100 news-card-inner">
+              <img src="https://cdn.bachtrack.com/files/407688-08-1-chungctakafumi-ueno-2024-0225-orchardhall-tu-.jpg" class="card-img-top" alt="Composer Event">
+              <div class="card-body">
+                <h5 class="card-title">Composer Live Concert in Tokyo</h5>
+                <p class="card-text small">Popular anime composer to perform film scores live.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 8 -->
+          <div class="col-lg-3 col-md-6 col-sm-12 news-card" data-category="announcements">
+            <div class="card h-100 news-card-inner">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB_LFV01XjnDqP5UVQWwlLBtbBbALuXzfGyQ&s" class="card-img-top" alt="Studio Update">
+              <div class="card-body">
+                <h5 class="card-title">Studio Announces New Project</h5>
+                <p class="card-text small">Studio reveals a new original title led by a veteran director.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 9 -->
+          <div class="col-lg-3 col-md-6 col-sm-12 news-card" data-category="episodes">
+            <div class="card h-100 news-card-inner">
+              <img src="https://upload.wikimedia.org/wikipedia/ru/4/40/Demon_Slayer_Kimetsu_no_Yaiba_%E2%80%93_The_Hinokami_Chronicles_box_art.jpg" class="card-img-top" alt="Demon Slayer Ep">
+              <div class="card-body">
+                <h5 class="card-title">Demon Slayer — Midseason Recap Announced</h5>
+                <p class="card-text small">Studio to air a recap episode with new artwork segments.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 10 -->
+          <div class="col-lg-3 col-md-6 col-sm-12 news-card" data-category="tops">
+            <div class="card h-100 news-card-inner">
+              <img src="https://sm.ign.com/t/ign_nordic/cover/c/chainsaw-m/chainsaw-man_uk8k.600.jpg" class="card-img-top" alt="Chainsaw Man">
+              <div class="card-body">
+                <h5 class="card-title">Chainsaw Man Climbs Weekly Rankings</h5>
+                <p class="card-text small">New arc propels the series into top weekly streaming lists.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 11 -->
+          <div class="col-lg-3 col-md-6 col-sm-12 news-card" data-category="events">
+            <div class="card h-100 news-card-inner">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPMAyKBe22LFwjJ8Th0Xz_6i6mRbu7PoMMEA&s" class="card-img-top" alt="Premiere">
+              <div class="card-body">
+                <h5 class="card-title">World Premiere Screening — New Movie</h5>
+                <p class="card-text small">Exclusive premiere with cast Q&A in limited theaters.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 12 -->
+          <div class="col-lg-3 col-md-6 col-sm-12 news-card" data-category="announcements">
+            <div class="card h-100 news-card-inner">
+              <img src="https://i.ytimg.com/vi/UCPZzEbhNJw/maxresdefault.jpg" class="card-img-top" alt="Staff Update">
+              <div class="card-body">
+                <h5 class="card-title">Staff Update — Director Change</h5>
+                <p class="card-text small">Key staff reassignments announced for an upcoming series.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Subscribe button -->
+        <div class="text-center mt-4">
+          <button id="subscribe-btn-news" class="btn btn-pink btn-lg" data-bs-toggle="modal" data-bs-target="#subscribeModal">Subscribe to Updates</button>
+        </div>
+
+        <!-- Subscribe modal (Bootstrap) -->
+        <div class="modal fade" id="subscribeModal" tabindex="-1" aria-labelledby="subscribeModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark text-light">
+              <div class="modal-header">
+                <h5 class="modal-title text-pink" id="subscribeModalLabel">Subscribe</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form id="subscribeForm" novalidate>
+                  <div class="mb-3">
+                    <label for="email" class="form-label">Email address</label>
+                    <input type="email" id="email" class="form-control bg-dark border-pink" placeholder="you@example.com" required>
+                    <div class="form-text text-danger" id="emailError"></div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" id="password" class="form-control bg-dark border-pink" placeholder="At least 6 characters" required>
+                    <div class="form-text text-danger" id="passwordError"></div>
+                  </div>
+                  <button type="submit" class="btn btn-pink w-100" id="subscribeBtn">Subscribe</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+
+    <!-- Animated counters at bottom -->
+    <div class="stats-bar py-3">
+      <div class="container d-flex justify-content-around align-items-center">
+        <div class="stat text-center">
+          <div class="stat-number" data-target="10234">0</div>
+          <div class="stat-label small">Users</div>
+        </div>
+        <div class="stat text-center">
+          <div class="stat-number" data-target="4.8" data-decimals="1">0</div>
+          <div class="stat-label small">Rating</div>
+        </div>
+        <div class="stat text-center">
+          <div class="stat-number" data-target="523">0</div>
+          <div class="stat-label small">Articles</div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="grid-footer bg-dark text-light text-center py-2 py-md-3 mt-0 mt-lg-2">
+      <p class="mb-3">&copy; 2025 Anime World | Created by <strong>Dinara Aitolkyn Tomiris Nurassyl</strong></p>
+    </footer>
+
+  </div>
+
+  <!-- Notification -->
+  <div id="notification" aria-live="polite" role="status"></div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- App script -->
+  <script src="script.js"></script>
 </body>
 </html>
