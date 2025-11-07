@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Anime List - AnimeLIB</title>
-  <link rel="stylesheet" href="style.css">
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AnimeLIB - Explore your favorite anime, watch trailers, read reviews, and stay updated.">
+ <title>Anime List - AnimeLIB</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+ <link rel="stylesheet" href="style.css">
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
   <header class="navbar">
@@ -12,9 +16,9 @@
     <nav>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a href="about.html" >About</a></li>
         <li><a href="news.html">News</a></li>
-        <li><a href="anime_list.html"class="active">Anime List</a></li>
+        <li><a href="anime_list.html" class="active">Anime List</a></li>
         <li><a href="episodes.html">Episodes</a></li>
         <li><a href="reviews.html">Reviews</a></li>
         <li><a href="faq.html">FAQ</a></li>
@@ -23,45 +27,214 @@
     </nav>
   </header>
 
-  <main>
+ <main class="container my-4"> 
+      <div class="d-flex justify-content-between align-items-center p-3">
+  <button id="themeBtn" aria-label="Toggle between day and night theme">DAY THEME / NIGHT THEME</button>
+  <p id="dateTime"></p>
+</div>
+ <div id="animeCarousel" class="carousel slide" data-bs-ride="carousel" aria-label="Anime slideshow">
+ <div class="carousel-indicators">
+ <button type="button" data-bs-target="#animeCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+ <button type="button" data-bs-target="#animeCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+ <button type="button" data-bs-target="#animeCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+ <button type="button" data-bs-target="#animeCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+ <button type="button" data-bs-target="#animeCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+ <button type="button" data-bs-target="#animeCarousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
+ <button type="button" data-bs-target="#animeCarousel" data-bs-slide-to="6" aria-label="Slide 7"></button>
+ <button type="button" data-bs-target="#animeCarousel" data-bs-slide-to="7" aria-label="Slide 8"></button>
+<button type="button" data-bs-target="#animeCarousel" data-bs-slide-to="8" aria-label="Slide 9"></button>
+ </div>
+
+ <div class="carousel-inner">
+ <div class="carousel-item active">
+<img src="https://wallpapers.com/images/hd/akatsuki-naruto-4k-pumblsbdu3rtklkd.jpg" class="d-block w-100" alt="Naruto">
+<div class="carousel-caption d-none d-md-block"><h5>Naruto</h5></div>
+ </div>
+ <div class="carousel-item">
+ <img src="https://wallpapers.com/images/hd/one-piece-desktop-all-characters-npnolrp44bpmttxh.jpg" class="d-block w-100" alt="One Piece">
+ <div class="carousel-caption d-none d-md-block"><h5>One Piece</h5></div>
+ </div>
+<div class="carousel-item">
+ <img src="https://wallpapersok.com/images/high/asta-and-ichigo-bleach-4k-ultra-hd-crossover-gsdjiu018dkfb79y.jpg" class="d-block w-100" alt="Bleach">
+ <div class="carousel-caption d-none d-md-block"><h5>Bleach</h5></div>
+ </div>
+ <div class="carousel-item">
+ <img src="https://wallpapercave.com/wp/wp8720119.jpg" class="d-block w-100" alt="Demon Slayer">
+ <div class="carousel-caption d-none d-md-block"><h5>Demon Slayer</h5></div>
+ </div>
+ <div class="carousel-item">
+ <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk_OGA5r3FbdmzB_A5M0yFXUeRU_kuSsupHA&s" class="d-block w-100" alt="Attack on Titan">
+ <div class="carousel-caption d-none d-md-block"><h5>Attack on Titan</h5></div>
+</div>
+ <div class="carousel-item">
+<img src="https://images7.alphacoders.com/118/1189631.jpg" class="d-block w-100" alt="Death Note">
+ <div class="carousel-caption d-none d-md-block"><h5>Death Note</h5></div>
+</div>
+ <div class="carousel-item">
+<img src="https://wallpapers.com/images/featured/jujutsu-kaisen-4k-hccbh0fp7rl24yd0.jpg" class="d-block w-100" alt="Jujutsu Kaisen">
+ <div class="carousel-caption d-none d-md-block"><h5>Jujutsu Kaisen</h5></div>
+</div>
+ <div class="carousel-item">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRp5uHz4YdevpIeatHD42faTg7rkHxL6tCyYA&s" class="d-block w-100" alt="My Hero Academia">
+ <div class="carousel-caption d-none d-md-block"><h5>My Hero Academia</h5></div>
+ </div>
+ <div class="carousel-item">
+<img src="https://i.pinimg.com/736x/2b/ca/78/2bca784f3b31fbd3066aa2bdbf656061.jpg" class="d-block w-100" alt="Spy x Family">
+<div class="carousel-caption d-none d-md-block"><h5>Spy x Family</h5></div>
+ </div>
+</div>
+
+<button class="carousel-control-prev" type="button" data-bs-target="#animeCarousel" data-bs-slide="prev">
+ <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+ <span class="visually-hidden">Previous</span>
+ </button>
+ <button class="carousel-control-next" type="button" data-bs-target="#animeCarousel" data-bs-slide="next">
+ <span class="carousel-control-next-icon" aria-hidden="true"></span>
+ <span class="visually-hidden">Next</span>
+</button>
+</div>
+
+
   <section class="anime-gallery">
-    <div class="anime-item">
+    <div class="anime-item" data-audio="sounds\shiruetto.mp3">
       <img src="https://m.media-amazon.com/images/M/MV5BZTNjOWI0ZTAtOGY1OS00ZGU0LWEyOWYtMjhkYjdlYmVjMDk2XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Naruto">
       <h3>Naruto</h3>
     </div>
-    <div class="anime-item">
+    <div class="anime-item" data-audio="sounds\one-piece-intro.mp3">
       <img src="https://m.media-amazon.com/images/M/MV5BMTNjNGU4NTUtYmVjMy00YjRiLTkxMWUtNzZkMDNiYjZhNmViXkEyXkFqcGc@._V1_.jpg" alt="One Piece">
       <h3>One Piece</h3>
     </div>
-    <div class="anime-item">
+    <div class="anime-item" data-audio="sounds\4-bleach-number-one.mp3">
       <img src="https://avatars.mds.yandex.net/i?id=ab5f473d1b0b6cd46736d1b142ff0d27_l-5267277-images-thumbs&n=13" alt="Bleach">
       <h3>Bleach</h3>
     </div>
-    <div class="anime-item">
+    <div class="anime-item" data-audio="sounds\demon-slayer-kimetsu-no-yaiba-opening-fulllisa-gurengeeng-sub.mp3">
       <img src="https://avatars.mds.yandex.net/i?id=0e406e7cba4691c4dcba5be5e3220398_l-2811359-images-thumbs&n=13" alt="Demon Slayer">
       <h3>Demon Slayer</h3>
     </div>
-    <div class="anime-item">
+    <div class="anime-item" data-audio="sounds\shingeki-no-kyojin-ost-attack-on-titan2.mp3">
       <img src="https://avatars.mds.yandex.net/i?id=1fcaba12454503aa2124abad10e8b4b0_l-12602673-images-thumbs&n=13" alt="Attack on Titan">
       <h3>Attack on Titan</h3>
     </div>
-    <div class="anime-item">
+    <div class="anime-item" data-audio="sounds\00000000000000000_kwoFjw1.mp3">
       <img src="https://m.media-amazon.com/images/M/MV5BYTgyZDhmMTEtZDFhNi00MTc4LTg3NjUtYWJlNGE5Mzk2NzMxXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Death Note">
       <h3>Death Note</h3>
     </div>
-    <div class="anime-item">
+    <div class="anime-item" data-audio="sounds\4-jujutsu-kaisen-intro.mp3">
       <img src="https://m.media-amazon.com/images/M/MV5BNmI1MmYxNWQtY2E5NC00ZTlmLWIzZGEtNzM1YmE3NDA5NzhjXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Jujutsu Kaisen">
       <h3>Jujutsu Kaisen</h3>
     </div>
-    <div class="anime-item">
+    <div class="anime-item" data-audio="sounds\follower-notification-dlive.mp3">
       <img src="https://m.media-amazon.com/images/M/MV5BY2QzODA5OTQtYWJlNi00ZjIzLThhNTItMDMwODhlYzYzMjA2XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="My Hero Academia">
       <h3>My Hero Academia</h3>
     </div>
   </section>
-</main>
 
-  <footer class="grid-footer">
-      <p>&copy; 2025 Anime World. All rights reserved.</p>
-    </footer>
+    <div id="popupForm">
+      <div class="popup-content">
+        <span class="close-btn" id="closePopup">&times;</span>
+        <h4 class="text-center text-danger mb-3">Subscribe for Updates</h4>
+        <form id="subscribeForm">
+          <input type="text" id="subName" placeholder="Enter your name" required />
+          <input type="email" id="subEmail" placeholder="Enter your email" required />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+    
+    <section class="mt-5">
+      <h2 class="text-center mb-3">Contact Us</h2>
+      <form id="contactForm" class="mx-auto" style="max-width:500px;">
+        <input
+          type="text"
+          id="contactName"
+          class="form-control mb-2"
+          placeholder="Your Name"
+          required
+        />
+        <input
+          type="email"
+          id="contactEmail"
+          class="form-control mb-2"
+          placeholder="Your Email"
+          required
+        />
+        <input
+          type="password"
+          id="password"
+          class="form-control mb-2"
+          placeholder="Password (min 6 chars)"
+          required
+        />
+        <input
+          type="password"
+          id="confirmPassword"
+          class="form-control mb-2"
+          placeholder="Confirm Password"
+          required
+        />
+        <button type="submit" class="btn btn-success w-100">Submit</button>
+        <p id="errorMsg" class="text-danger mt-2 text-center"></p>
+      </form>
+    </section>
+
+    <section class="my-5">
+      <h2 class="text-center mb-3">Anime Library FAQ</h2>
+      <div class="accordion" id="animeAccordion">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#faq1"
+            >
+              What is AnimeLIB?
+            </button>
+          </h2>
+          <div
+            id="faq1"
+            class="accordion-collapse collapse"
+            data-bs-parent="#animeAccordion"
+          >
+            <div class="accordion-body">
+              AnimeLIB is your ultimate hub for anime news, reviews, and watch
+              lists.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#faq2"
+            >
+              Can I submit reviews?
+            </button>
+          </h2>
+          <div
+            id="faq2"
+            class="accordion-collapse collapse"
+            data-bs-parent="#animeAccordion"
+          >
+            <div class="accordion-body">
+              Yes! You can submit reviews and suggestions using the contact form
+              below.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+ </main>
+
+ <footer class="text-center p-3 bg-light mt-4">
+<p>&copy; 2025 AnimeLIB. All rights reserved.</p>
+ </footer>
+
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
 </body>
 </html>
