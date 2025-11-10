@@ -1,18 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AnimeLIB - Contact</title>
-
-  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Your existing CSS (do not change) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" href="style.css">
-  
-  <!-- jQuery (Task 0 requirement) -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body class="bg-dark text-light">
 
@@ -41,324 +35,102 @@
     </div>
     </nav>
   </header>
-
-  <!-- HERO SECTION -->
-  <section class="text-center text-light py-5 bg-danger bg-gradient">
-    <div class="container">
-      <h1 class="fw-bold mb-3">Contact Us</h1>
-      <p class="lead">We’d love to hear from you! Whether it’s feedback, questions, or ideas — reach out anytime.</p>
-    </div>
-  </section>
-
-  <!-- CONTACT CARDS -->
-  <main class="container my-5">
-    <h2 class="text-center text-warning mb-4">Get in Touch</h2>
-
-    <!-- Search (Task 1 + 2 + 3) -->
-    <div class="row mb-3">
-      <div class="col-md-8 mx-auto">
-        <input id="searchBar" class="form-control" placeholder="Search cards (e.g. Support, Email, Follow) — try typing 'email'">
-        <div id="suggestions" style="display:none; position:absolute; z-index:2000;"></div>
-        <div class="d-flex gap-2 mt-2">
-          <button id="highlightBtn" class="btn btn-outline-warning">Highlight</button>
-          <button id="clearHighlight" class="btn btn-outline-warning">Clear Highlight</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="row g-4" id="cardsRow">
-      <div class="col-lg-4 col-md-6">
-        <div class="card bg-secondary text-light h-100">
-          <div class="card-body text-center">
-            <h5 class="card-title text-danger">Customer Support</h5>
-            <p class="card-text">Need help? Our team is available 24/7 to assist you.</p>
-            <a href="#" class="btn btn-outline-warning">Learn More</a>
+<body>
+  <div class="container-fluid">
+    <header class="bg-danger text-light">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-danger border-bottom border-warning" aria-label="Main navigation">
+        <div class="container">
+          <a class="navbar-brand fw-bold text-light" href="index.html">AnimeLIB</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+              <li class="nav-item"><a class="nav-link" href="news.html">News</a></li>
+              <li class="nav-item"><a class="nav-link" href="anime_list.html">Anime List</a></li>
+              <li class="nav-item"><a class="nav-link" href="episodes.html">Episodes</a></li>
+              <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
+              <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+              <li class="nav-item"><a class="nav-link active" href="contact.html" aria-current="page">Contact</a></li>
+            </ul>
           </div>
         </div>
-      </div>
+      </nav>
+    </header>
 
-      <div class="col-lg-4 col-md-6">
-        <div class="card bg-secondary text-light h-100">
-          <div class="card-body text-center">
-            <h5 class="card-title text-danger">Email Us</h5>
-            <p class="card-text">Send your inquiries to <strong class="support-email">support@animelib.com</strong></p>
-            <a href="#" class="btn btn-outline-warning">Send Mail</a>
-          </div>
-        </div>
-      </div>
+    <div class="row">
+      <aside class="col-lg-3 col-md-4 col-sm-12 grid-sidebar p-3 p-md-4">
+        <h3 class="mb-3">Quick Links</h3>
+        <ul>
+          <li><a href="anime_list.html">Anime List</a></li>
+          <li><a href="episodes.html">Latest Episodes</a></li>
+        </ul>
+        <p class="mb-3">Fun fact: Reach out to share your anime passion! 🌟</p>
+      </aside>
 
-      <div class="col-lg-4 col-md-6">
-        <div class="card bg-secondary text-light h-100">
-          <div class="card-body text-center">
-            <h5 class="card-title text-danger">Follow Us</h5>
-            <p class="card-text">Stay updated on Twitter, Instagram, and TikTok!</p>
-            <a href="#" class="btn btn-outline-warning">Follow</a>
-          </div>
-        </div>
-      </div>
+      <main class="col-lg-9 col-md-8 col-sm-12 grid-main p-3 p-md-4">
+        <section class="contact-form">
+          <h2 class="mb-3 mb-lg-4">Contact Us</h2>
+          <form class="p-3 p-lg-4 bg-dark rounded">
+            <div class="row">
+              <div class="col-12 mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control bg-dark text-light border-pink" id="name" placeholder="Your Name" required aria-describedby="nameHelp">
+                <div id="nameHelp" class="form-text text-light">Enter your full name.</div>
+              </div>
+              <div class="col-12 mb-3">
+                <label for="email" class="form-label">Email</label>
+                <div class="input-group">
+                  <span class="input-group-text bg-dark text-pink border-pink" id="emailIcon">@</span>
+                  <input type="email" class="form-control bg-dark text-light border-pink" id="email" placeholder="Your Email" required aria-describedby="emailHelp emailIcon">
+                  <div id="emailHelp" class="form-text text-light">We'll never share your email.</div>
+                </div>
+              </div>
+              <div class="col-12 mb-3">
+                <label for="subject" class="form-label">Subject</label>
+                <input type="text" class="form-control bg-dark text-light border-pink" id="subject" placeholder="Subject" required aria-describedby="subjectHelp">
+                <div id="subjectHelp" class="form-text text-light">Briefly describe the purpose of your message.</div>
+              </div>
+              <div class="col-12 mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea class="form-control bg-dark text-light border-pink" id="message" rows="5" placeholder="Your Message" required aria-describedby="messageHelp"></textarea>
+                <div id="messageHelp" class="form-text text-light">Provide details for your inquiry or feedback.</div>
+              </div>
+              <div class="col-12 mb-3">
+                <label class="form-label" id="inquiryLabel">Inquiry Type</label>
+                <div class="form-check">
+                  <input class="form-check-input border-pink" type="radio" name="inquiry" id="animeRequest" value="animeRequest" checked aria-labelledby="inquiryLabel">
+                  <label class="form-check-label" for="animeRequest">Anime Request</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input border-pink" type="radio" name="inquiry" id="general" value="general" aria-labelledby="inquiryLabel">
+                  <label class="form-check-label" for="general">General Inquiry</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input border-pink" type="radio" name="inquiry" id="feedback" value="feedback" aria-labelledby="inquiryLabel">
+                  <label class="form-check-label" for="feedback">Feedback</label>
+                </div>
+              </div>
+              <div class="col-12 mb-3">
+                <div class="form-check">
+                  <input class="form-check-input border-pink" type="checkbox" id="newsletter" value="newsletter">
+                  <label class="form-check-label" for="newsletter">Subscribe to our newsletter</label>
+                </div>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary btn-lg btn-pink">Send Message</button>
+              </div>
+            </div>
+          </form>
+        </section>
+      </main>
     </div>
 
-    <!-- CONTACT FORM -->
-    <section class="mt-5">
-      <h3 class="text-center text-warning mb-3">Send a Message</h3>
-      <form id="contactForm" class="bg-secondary p-4 rounded shadow">
-        <div class="mb-3">
-          <label class="form-label text-warning">Your Name</label>
-          <input id="yourName" type="text" class="form-control" placeholder="Enter your name" required>
-        </div>
-        <div class="mb-3">
-          <label class="form-label text-warning">Email</label>
-          <input id="yourEmail" type="email" class="form-control" placeholder="Enter your email" required>
-        </div>
-        <div class="mb-3">
-          <label class="form-label text-warning">Message</label>
-          <textarea id="yourMessage" class="form-control" rows="4" placeholder="Type your message..." required></textarea>
-        </div>
-        <button id="timeBtn" class="btn btn-danger mt-3">Show Current Time</button>
-        <p id="timeDisplay" class="mt-2"></p>
-        <div class="btn-group w-100 mt-3">
-          <button id="sendBtn" type="submit" class="btn btn-danger">Send</button>
-          <button type="reset" class="btn btn-outline-warning">Clear</button>
-        </div>
-      </form>
-    </section>
-
-    <!-- small stats for Task 5 -->
-    <section id="stats" class="text-center my-5">
-      <h4 class="text-warning">Site Stats</h4>
-      <div class="d-flex justify-content-center gap-4 mt-3">
-        <div><div class="counter display-6" data-target="1200">0</div><div>Users</div></div>
-        <div><div class="counter display-6" data-target="320">0</div><div>Messages</div></div>
-        <div><div class="counter display-6" data-target="85">0</div><div>Partners</div></div>
-      </div>
-    </section>
-
-    <!-- copy button (Task 8) appended next to email visually -->
-    <div class="text-center mb-4">
-      <button id="copyEmailBtn" class="btn btn-outline-warning">Copy support email</button>
-    </div>
-
-    <!-- lazy images (Task 9) -->
-    <section id="gallery" class="my-4 text-center">
-      <h5 class="text-warning">Gallery (lazy loaded)</h5>
-      <div class="d-flex justify-content-center flex-wrap gap-3 mt-2">
-        <img class="lazy" data-src="https://picsum.photos/id/1003/360/200" width="360" height="200" alt="lazy1">
-        <img class="lazy" data-src="https://picsum.photos/id/1005/360/200" width="360" height="200" alt="lazy2">
-        <img class="lazy" data-src="https://picsum.photos/id/1011/360/200" width="360" height="200" alt="lazy3">
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Popup -->
-  <div class="text-center my-4">
-    <button id="openPopup" class="btn btn-danger">Subscribe for Updates</button>
+    <footer class="grid-footer bg-dark text-light text-center py-2 py-md-3 mt-4 mt-lg-5">
+      <p class="mb-3">&copy; 2025 Anime World | Created by <strong>Your Name</strong></p>
+    </footer>
   </div>
-
-  <div id="popupForm" class="d-none position-fixed top-0 start-0 w-100 h-100 bg-dark bg-opacity-75 d-flex justify-content-center align-items-center">
-    <div class="bg-secondary text-light p-4 rounded position-relative shadow" style="width: 320px;">
-      <button id="closePopup" class="btn-close btn-close-white position-absolute top-0 end-0 m-2"></button>
-      <h4 class="text-warning mb-3">Subscribe to AnimeLIB</h4>
-      <input type="email" id="popupEmail" class="form-control mb-3" placeholder="Enter your email" required>
-      <button class="btn btn-outline-warning w-100" id="subscribeBtn">Subscribe</button>
-    </div>
-  </div>
-  
-  <!-- FOOTER -->
-  <footer class="bg-black text-center text-light py-3 border-top border-danger">
-    <p id="currentDate" class="m-0"></p>
-    <p class="m-0">&copy; 2025 AnimeLIB. All rights reserved.</p>
-  </footer>
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Internal jQuery script implementing Tasks 0-9 -->
-  <script>
-  $(document).ready(function() {
-    console.log("jQuery is ready!"); // Task 0
-
-    /* -------------------------
-       TASK 1: Real-time Search
-    ------------------------- */
-   // --- Fixed Highlight Function ---
-$(document).on('highlight', '#searchBar', function () {
-  const query = $(this).val().trim();
-  const regex = new RegExp(`(${query})`, 'gi');
-
-  // Only apply to visible text inside these elements
-  $('.card-title, .card-text').each(function () {
-    const original = $(this).text(); // get only visible text
-    if (!query) {
-      $(this).html(original); // reset if empty
-    } else {
-      // replace matches with <mark> only in text
-      const highlighted = original.replace(regex, '<mark>$1</mark>');
-      $(this).html(highlighted);
-    }
-  });
-});
-
-
-    /* -------------------------
-       TASK 2: Autocomplete Suggestions
-    ------------------------- */
-    const suggestions = ["Support", "support@animelib.com", "Follow", "Email", "News", "Contact", "Anime"];
-    const $sbox = $('#suggestions').css({ width: $('#searchBar').outerWidth() });
-    $('#searchBar').on('input', function() {
-      const v = $(this).val().toLowerCase().trim();
-      $sbox.empty();
-      if (!v) { $sbox.hide(); return; }
-      suggestions.filter(s => s.toLowerCase().includes(v)).slice(0,6).forEach(s => {
-        $('<div>').addClass('p-2').css('cursor','pointer').text(s).appendTo($sbox);
-      });
-      $sbox.show();
-    });
-    // click suggestion
-    $sbox.on('click', 'div', function(e) {
-      e.stopPropagation();
-      $('#searchBar').val($(this).text()).trigger('input');
-      $sbox.hide();
-    });
-    $(document).on('click', function(e) { if (!$(e.target).closest('#searchBar,#suggestions').length) $sbox.hide(); });
-
-    /* -------------------------
-       TASK 3: Search Highlighting
-    ------------------------- */
-    function escapeReg(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
-    $('#searchBar').on('highlight', function() {
-      const term = $(this).val().trim();
-      $('#cardsRow .card-body').each(function() {
-        const $b = $(this);
-        const orig = $b.data('orig') || $b.html();
-        $b.data('orig', orig);
-        if (!term) { $b.html(orig); return; }
-        const re = new RegExp('(' + escapeReg(term) + ')', 'gi');
-        $b.html(orig.replace(re, '<span style="background: #ffe766; color:#000; padding:0 2px;">$1</span>'));
-      });
-    });
-    $('#clearHighlight').on('click', function() { $('#cardsRow .card-body').each(function(){ $(this).html($(this).data('orig')||$(this).html()); }); });
-
-    /* -------------------------
-       TASK 4: Scroll Progress Bar
-    ------------------------- */
-    $('body').prepend('<div id="scroll-progress"></div>');
-    $(window).on('scroll', function() {
-      const st = $(this).scrollTop();
-      const max = $(document).height() - $(window).height();
-      const pct = max>0 ? (st/max)*100 : 0;
-      $('#scroll-progress').css({ width: pct + '%' });
-    });
-
-    /* -------------------------
-       TASK 5: Animated Counter
-    ------------------------- */
-    function animateCountersIfVisible() {
-      const top = $('#stats').offset().top;
-      if (top < $(window).scrollTop() + $(window).height()) {
-        $('.counter').each(function() {
-          const $el = $(this);
-          const target = +$el.data('target') || 0;
-          $({n:0}).animate({n:target}, {
-            duration: 1400, easing: 'swing',
-            step(now){ $el.text(Math.floor(now)); },
-            complete(){ $el.text(target + '+'); }
-          });
-        });
-        $(window).off('scroll', animateCountersIfVisible);
-      }
-    }
-    $(window).on('scroll', animateCountersIfVisible);
-    animateCountersIfVisible();
-
-    /* -------------------------
-       TASK 6: Loading Spinner on Submit
-    ------------------------- */
-    $('#contactForm').on('submit', function(e) {
-      e.preventDefault();
-      const $btn = $('#sendBtn');
-      $btn.prop('disabled', true).html('<span class="spinner-border spinner-border-sm"></span> Please wait…');
-      setTimeout(function(){
-        $btn.prop('disabled', false).text('Send');
-        showToast('✅ Message sent successfully!');
-        $('#contactForm')[0].reset();
-      }, 1500);
-    });
-
-    /* -------------------------
-       TASK 7: Toast Notification
-    ------------------------- */
-    $('body').append('<div id="toast-container"></div>');
-    function showToast(msg, ttl=2000) {
-      const $t = $('<div class="toast p-2 rounded">'+msg+'</div>').hide();
-      $('#toast-container').append($t);
-      $t.fadeIn(200).delay(ttl).fadeOut(300, function(){ $(this).remove(); });
-    }
-
-    /* -------------------------
-       TASK 8: Copy to Clipboard
-    ------------------------- */
-    $('#copyEmailBtn').on('click', function(){
-      const email = $('.support-email').text().trim();
-      navigator.clipboard.writeText(email).then(function(){
-        $('#copyEmailBtn').text('✔ Copied').prop('disabled',true);
-        showToast('Copied to clipboard!');
-        setTimeout(()=> { $('#copyEmailBtn').text('Copy support email').prop('disabled',false); }, 1400);
-      }).catch(()=> showToast('Unable to copy'));
-    });
-
-    /* -------------------------
-       TASK 9: Lazy Loading Images
-    ------------------------- */
-    function lazyLoad() {
-      $('img.lazy').each(function(){
-        const $img = $(this);
-        if ($img.attr('src')) return;
-        if ($img.offset().top < $(window).scrollTop() + $(window).height() - 60) {
-          $img.attr('src', $img.data('src')).on('load', function(){ $(this).addClass('loaded'); });
-        }
-      });
-    }
-    $(window).on('scroll resize load', lazyLoad);
-    lazyLoad();
-
-    /* -------------------------
-       Popup & small utilities (kept original behavior)
-    ------------------------- */
-    $('#openPopup').on('click', function(){ $('#popupForm').removeClass('d-none'); });
-    $('#closePopup').on('click', function(){ $('#popupForm').addClass('d-none'); });
-    $('#subscribeBtn').on('click', function(){
-      const mail = $('#popupEmail').val().trim();
-      if (!mail) { showToast('⚠️ Enter email first'); return; }
-      $('#popupForm').addClass('d-none');
-      showToast('✅ Subscribed: ' + mail);
-      $('#popupEmail').val('');
-    });
-
-    // Back-to-top small button (kept from original request)
-    const $toTop = $('<button id="toTopBtn" class="btn btn-danger" style="display:none;position:fixed;right:18px;bottom:20px;z-index:2000;">⬆</button>');
-    $('body').append($toTop);
-    $(window).on('scroll', function(){ $toTop.toggle($(this).scrollTop()>300); });
-    $toTop.on('click', function(){ $('html,body').animate({scrollTop:0},300); });
-
-    // Show current time button (kept)
-    $('#timeBtn').on('click', function(e){ e.preventDefault(); $('#timeDisplay').text('Current Time: ' + new Date().toLocaleTimeString()); });
-
-    // Live footer clock
-    function updateFooterClock(){ $('#currentDate').text('Current Date and Time: ' + new Date().toLocaleString('en-GB')); }
-    updateFooterClock(); setInterval(updateFooterClock, 1000);
-
-    // Keyboard shortcuts: disable when typing (prevents subscribe opening while typing)
-    $(document).on('keydown', function(e){
-      const tag = document.activeElement.tagName;
-      if (tag === 'INPUT' || tag === 'TEXTAREA') return;
-      if (e.key === 's') $('#popupForm').removeClass('d-none');
-      if (e.key === 'b') $('body').toggleClass('light-theme');
-      if (e.key === 't') showToast('Current time: ' + new Date().toLocaleTimeString(), 1200);
-    });
-
-  }); // end document ready
-  </script>
-
 </body>
 </html>
